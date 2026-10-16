@@ -1,46 +1,45 @@
-# Apple Project 1 — Corporate Finance Application
+# Apple Project 1 — FCFF Valuation Workbench
 
-## Finance decision and intended user
+## Decision and intended user
 
-This project supports a buy-side investment committee deciding whether to initiate Apple (AAPL). The current, interim recommendation is **watch/defer** as of September 17, 2026: the recorded market price is $337.00 per share versus a base FCFF DCF result of approximately $224.42 per share. This is educational work, not investment advice.
-
-## Visible result
-
-Run `python3 analysis.py` to create `visible_output.json`. That frozen artifact exposes the as-of date, material DCF inputs, valuation result, decision, and limitations without requiring a grader to run the model.
+This locally runnable workbench supports a buy-side investment committee deciding whether to initiate Apple (AAPL). As of **September 17, 2026**, the base FCFF case indicates **watch/defer**: $131.61 per share versus the recorded $337.00 market price. This is educational analysis, not investment advice.
 
 ## Setup and run
 
-Requires Python 3.10+ and no third-party packages.
+Python 3.10+ is required; there are no third-party dependencies or credentials.
 
 ```bash
-python3 dcf.py
+python3 apple_fcff_model.py
 python3 analysis.py
-python3 apple_proforma.py
-python3 apple_lab10_sensitivity.py --run
+python3 peer_valuation.py
+python3 app.py
 ```
 
-`peer_valuation.py` now runs the interim Microsoft/Alphabet P/E cross-check. It remains provisional and cannot be final evidence until the peer-selection policy is frozen and the required EV and equity-value multiples are added.
+Open `http://127.0.0.1:8000` after starting `app.py`. The app has bounded operating/valuation controls, a base reset, causal cases, and visible balance-sheet/cash-flow checks. An incoherent input fails visibly rather than returning a number.
+
+`python3 analysis.py` regenerates `visible_output.json`, the executed-output artifact. The app and model use USD millions except rates and per-share values.
+
+## Finance method
+
+`apple_fcff_model.py` starts with Apple FY2025 audited financial statements, forecasts FY2026–FY2030 income statement, operating balance sheet, and cash flow, and derives FCFF from NOPAT + D&A − capex − change in operating net working capital. The model checks that each forecast balance sheet balances and that cash flow ties to the balance-sheet cash change.
+
+The enterprise-to-equity bridge uses the Q3 FY2026 Form 10-Q: add $146,517M of cash plus marketable securities; subtract $84,344M of commercial paper plus term debt; divide by 14,594.18M shares outstanding. Operating lease liabilities remain in operating liabilities, so they are not double counted as debt. The base case uses 6% revenue growth, 47.0% gross margin, 15.0% operating expense / revenue, 3.0% capex / revenue, 9.0% WACC, and 2.5% terminal growth. These are documented forecast assumptions, not reported facts.
 
 ## Repository map
 
-- `analysis.py` — generates the visible-output artifact from the FCFF DCF inputs.
-- `dcf.py` — current FCFF DCF, WACC–growth grid, and reverse-DCF calculation.
-- `apple_proforma.py` / `apple_lab10_sensitivity.py` — prior Apple pro-forma and one-at-a-time sensitivity work; currently FCFE-based and therefore not the final required FCFF engine.
-- `project-1-edition-a.*` — preserved Edition A baseline.
-- `project-1-edition-b.md` — working research-evolution brief.
-- `docs/` — final-submission documentation in progress.
-- `sources.md` — running source log.
+- `apple_fcff_model.py` — final three-statement FCFF engine, cases, bridge, and checks.
+- `app.py` — semi-adjustable local analyst product used for the live demo.
+- `analysis.py` / `visible_output.json` — visible executed output.
+- `peer_valuation.py` and `peer-policy.md` — peer policy and market cross-check.
+- `docs/` — research evolution, decision memo, validation/AI-use record, and video transcripts.
+- `sources.md` — source log; `apple-2025-10k-filing-facts.md` — filing-based company research.
 
-## Data sources and point-in-time boundary
+## Data sources and limitations
 
-The current DCF evidence uses Apple’s Q3 FY2026 Form 10-Q for the June 27, 2026 financial position and September 17, 2026 market inputs documented in `AAPL_reverseDCF_9-10-26.md` and `AAPL_peer_comparison_2026-09-10.md`. Use only public information available by each displayed as-of date.
+The historical opening balance sheet and operating data are from Apple’s FY2025 Form 10-K. The valuation-date bridge and shares are from Apple’s Q3 FY2026 Form 10-Q (June 27, 2026); the recorded price is September 17, 2026. See `sources.md`, `apple_fcff_model.py`, and `peer-policy.md` for links and treatment.
 
-## Known limitations and required next work
-
-This repository is **not final-submission ready**. It needs: an articulating five-year three-statement pro-forma producing FCFF; filing-based starting-FCFF and WACC support; normalization documentation; final bridge policy; predeclared peer policy plus EV and equity multiples; a semi-adjustable interface; the final locked changed-input record; and a clean-environment cold run. See `project-1-requirements-audit.md`.
+This is a simplified aggregate three-statement forecast: operating assets and liabilities are forecast as ratios of revenue and residual cash return is presented as financing/capital return. It does not forecast every Apple line item or claim a price target. The comparable-company result is a cross-check, not an averaged valuation, and its comparability limitations remain disclosed.
 
 ## Security
 
-No credentials are required. Do not commit `.env`, API keys, tokens, passwords, private data, or student-identifying data.
-
-# Project-1-
+No credentials are required. `.env.example` is intentionally empty. Do not commit passwords, tokens, API keys, private data, or `.env` files.

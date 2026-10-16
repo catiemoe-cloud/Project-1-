@@ -1,33 +1,49 @@
 {
   "company": "Apple Inc. (AAPL)",
   "as_of_date": "2026-09-17",
-  "decision": "Watch / defer; do not initiate at the recorded $337.00 market price.",
+  "decision": "Watch / defer; base value is below the recorded market price.",
   "units": "USD millions except per-share values and rates",
   "material_inputs": {
-    "starting_fcff_millions": 131000.0,
-    "fcff_growth_rates": [
-      0.07,
-      0.07,
-      0.07,
-      0.07,
-      0.07
-    ],
-    "wacc": 0.08,
-    "terminal_growth": 0.03,
-    "non_operating_cash_millions": 146517.0,
-    "debt_millions": 84344.0,
-    "shares_millions": 14594.18,
+    "revenue_growth": 0.06,
+    "gross_margin": 0.47,
+    "operating_expense_rate": 0.15,
+    "capex_rate": 0.03,
+    "wacc": 0.09,
+    "terminal_growth": 0.025,
     "market_price": 337.0
   },
+  "enterprise_to_equity_bridge": {
+    "enterprise_value_millions": 1858503.51,
+    "cash_and_marketable_securities_millions": 146517.0,
+    "debt_millions": 84344.0,
+    "equity_value_millions": 1920676.51,
+    "shares_millions": 14594.18
+  },
   "base_case": {
-    "fcff_year_5_millions": 183734.28,
-    "enterprise_value_millions": 3212985.73,
-    "equity_value_millions": 3275158.73,
-    "value_per_share": 224.42,
-    "terminal_value_share_of_ev": 0.8017
+    "value_per_share": 131.61,
+    "terminal_value_share_of_ev": 0.7488,
+    "fcff_by_year_millions": {
+      "2026": 107528.53,
+      "2027": 113989.11,
+      "2028": 120835.55,
+      "2029": 128091.36,
+      "2030": 135781.38
+    },
+    "balance_sheet_gaps_millions": {
+      "2026": -0.0,
+      "2027": 0.0,
+      "2028": -0.0,
+      "2029": 0.0,
+      "2030": -0.0
+    }
+  },
+  "causal_cases_value_per_share": {
+    "low": 87.07,
+    "base": 131.61,
+    "high": 185.85
   },
   "limitations": [
-    "Starting FCFF and WACC require final filing-based reconciliation.",
-    "This is an interim FCFF DCF; the final project requires an articulating three-statement forecast and documented bridge policy."
+    "Aggregate operating-asset and operating-liability forecast, not every reported Apple line item.",
+    "Comparable-company output is a cross-check and is not averaged with DCF."
   ]
 }

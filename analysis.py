@@ -1,62 +1,64 @@
-"""Export the Apple FCFF DCF's frozen visible-output artifact."""
+"""Generate the visible executed-output artifact from the final FCFF model."""
 
 import json
 from pathlib import Path
 
-import dcf
+from apple_fcff_model import (
+    BRIDGE_CASH_AND_SECURITIES,
+    BRIDGE_DEBT,
+    MARKET_PRICE,
+    SHARES,
+    Assumptions,
+    case_results,
+    valuation,
+)
 
 
-AS_OF_DATE = "2026-09-17"
 OUTPUT_PATH = Path("visible_output.json")
+AS_OF_DATE = "2026-09-17"
 
 
-def calculate_base_case():
-    fcff = dcf.STARTING_FCFF
-    pv_explicit = 0.0
-    for year, growth in enumerate(dcf.GROWTH_RATES, start=1):
-        fcff *= 1 + growth
-        pv_explicit += fcff / (1 + dcf.WACC) ** year
-    terminal_value = fcff * (1 + dcf.TERMINAL_GROWTH) / (dcf.WACC - dcf.TERMINAL_GROWTH)
-    pv_terminal = terminal_value / (1 + dcf.WACC) ** len(dcf.GROWTH_RATES)
-    enterprise_value = pv_explicit + pv_terminal
-    equity_value = enterprise_value + dcf.NON_OPERATING_CASH - dcf.DEBT
-    return {
-        "fcff_year_5_millions": round(fcff, 2),
-        "enterprise_value_millions": round(enterprise_value, 2),
-        "equity_value_millions": round(equity_value, 2),
-        "value_per_share": round(equity_value / dcf.DILUTED_SHARES, 2),
-        "terminal_value_share_of_ev": round(pv_terminal / enterprise_value, 4),
-    }
-
-
-def main():
-    result = calculate_base_case()
+def main() -> None:
+    base = valuation()
+    cases = case_results()
+    inputs = Assumptions()
     payload = {
         "company": "Apple Inc. (AAPL)",
         "as_of_date": AS_OF_DATE,
-        "decision": "Watch / defer; do not initiate at the recorded $337.00 market price.",
+        "decision": "Watch / defer; base value is below the recorded market price.",
         "units": "USD millions except per-share values and rates",
         "material_inputs": {
-            "starting_fcff_millions": dcf.STARTING_FCFF,
-            "fcff_growth_rates": dcf.GROWTH_RATES,
-            "wacc": dcf.WACC,
-            "terminal_growth": dcf.TERMINAL_GROWTH,
-            "non_operating_cash_millions": dcf.NON_OPERATING_CASH,
-            "debt_millions": dcf.DEBT,
-            "shares_millions": dcf.DILUTED_SHARES,
-            "market_price": dcf.TARGET_SHARE_PRICE,
+            "revenue_growth": inputs.revenue_growth,
+            "gross_margin": inputs.gross_margin,
+            "operating_expense_rate": inputs.operating_expense_rate,
+            "capex_rate": inputs.capex_rate,
+            "wacc": inputs.wacc,
+            "terminal_growth": inputs.terminal_growth,
+            "market_price": MARKET_PRICE,
         },
-        "base_case": result,
+        "enterprise_to_equity_bridge": {
+            "enterprise_value_millions": round(base["enterprise_value"], 2),
+            "cash_and_marketable_securities_millions": BRIDGE_CASH_AND_SECURITIES,
+            "debt_millions": BRIDGE_DEBT,
+            "equity_value_millions": round(base["equity_value"], 2),
+            "shares_millions": SHARES,
+        },
+        "base_case": {
+            "value_per_share": round(base["value_per_share"], 2),
+            "terminal_value_share_of_ev": round(base["tv_share_of_ev"], 4),
+            "fcff_by_year_millions": {str(row["year"]): round(row["fcff"], 2) for row in base["rows"]},
+            "balance_sheet_gaps_millions": {str(row["year"]): round(row["balance_gap"], 2) for row in base["rows"]},
+        },
+        "causal_cases_value_per_share": {name: round(item["value_per_share"], 2) for name, item in cases.items()},
         "limitations": [
-            "Starting FCFF and WACC require final filing-based reconciliation.",
-            "This is an interim FCFF DCF; the final project requires an articulating three-statement forecast and documented bridge policy.",
+            "Aggregate operating-asset and operating-liability forecast, not every reported Apple line item.",
+            "Comparable-company output is a cross-check and is not averaged with DCF.",
         ],
     }
     OUTPUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {OUTPUT_PATH}")
-    print(f"Base value per share: ${result['value_per_share']:.2f}")
+    print(f"Base value per share: ${payload['base_case']['value_per_share']:.2f}")
 
 
 if __name__ == "__main__":
     main()
-

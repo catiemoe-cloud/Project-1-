@@ -1,18 +1,19 @@
-# Decision Memo — Working Draft
+# Decision Memo — Apple (AAPL)
 
-## Decision and committee ask
+**To:** Buy-side investment committee
+**As of:** September 17, 2026
+**Decision:** **Watch/defer; do not initiate at the recorded $337.00 per-share price.**
 
-**Watch/defer Apple; do not initiate at $337.00 per share as of September 17, 2026.** The committee should authorize completion of the FCFF pro-forma and peer-policy work before revisiting the action.
+## Decision basis
 
-## Evidence and as-of date
+The five-year FCFF model returns a base enterprise value of **$1,858,504M**. Adding $146,517M of cash and marketable securities and subtracting $84,344M of commercial paper and term debt produces equity value of **$1,920,677M**, or **$131.61 per share** using 14,594.18M shares. The base case is therefore $205.39 below the recorded market price.
 
-The interim FCFF DCF estimates $224.42 per share at 7% five-year FCFF growth, 8% WACC, and 3% terminal growth. A qualified-lead P/E cross-check implies $206.86–$239.69. These methods are not averaged. See `docs/validation-and-ai-use.md` for validation and AI-use disclosure.
+The base forecast uses 6% annual revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, a 9.0% WACC, and 2.5% terminal growth. FY2026E–FY2030E FCFF rises from $107,529M to $135,781M. The terminal value is 74.9% of enterprise value, so the conclusion is highly dependent on long-run operating performance and discount-rate assumptions.
 
-## Material assumptions, risks, and monitoring
+## Cross-check, risks, and action
 
-The starting FCFF, WACC, bridge convention, and peer comparability are not final. Monitor Services growth, iPhone demand, Greater China, gross margin, regulation, and cash-flow conversion. Revisit only after the FCFF pro-forma, valuation bridge, and peer policy are validated.
+The causal low/base/high FCFF cases produce **$87.07 / $131.61 / $185.85** per share. The non-averaged P/E cross-check using qualified Microsoft and Alphabet peers yields $206.86–$239.69 per Apple share. Alphabet’s documented EV/revenue multiple is 10.7747x; it is retained as a market check, not converted into a price target because Alphabet’s advertising-led model differs materially from Apple’s ecosystem.
 
-## Action requested and next review point
+The main risks are that Apple sustains materially stronger revenue growth or margins than the base case, that the discount rate falls, and that terminal value is understated. Monitor Services growth, iPhone demand, Greater China, gross margin, regulatory developments, and cash-flow conversion at each earnings release.
 
-Authorize the model rebuild and a refreshed valuation range. An initiate recommendation requires validated evidence supporting a materially stronger cash-flow path or a price consistent with the refreshed valuation range.
-
+Revisit an initiate decision only if a refreshed, reproducible model supports a higher FCFF path or the price moves into a validated valuation range without operating deterioration. The complete validation record and AI-use disclosure are in `docs/validation-and-ai-use.md`.

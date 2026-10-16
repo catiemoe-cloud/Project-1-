@@ -6,7 +6,15 @@
 **Intended user:** Buy-side investment committee with no current Apple position  
 **Current action:** **Watch / defer; do not initiate at $337.00 per share.**
 
-> **Status:** This is a working Edition B, prepared after Edition A. It does not alter or replace `project-1-edition-a.md` or its submitted PDF. It records research completed after Edition A and must be combined with the unchanged Edition A in the final `Research-Evolution.pdf`.
+> **Status:** This is Edition B, prepared after Edition A. It does not alter or replace `project-1-edition-a.md` or its submitted PDF. The Final Build Update below supersedes earlier interim valuation numbers in this document.
+
+## Final Build Update — October 16, 2026
+
+The earlier $224.42 shortcut DCF has been replaced by `apple_fcff_model.py`, an articulating FY2026E–FY2030E three-statement FCFF model. The base output is **$131.61/share** (EV $1,858,504M; equity value $1,920,677M) using 6% revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, 9.0% WACC, and 2.5% terminal growth. The bridge adds Q3 FY2026 cash plus marketable securities of $146,517M and subtracts $84,344M of debt; it uses 14,594.18M shares. Each forecast year balances and its cash-flow statement ties to cash. The causal low/base/high values are $87.07/$131.61/$185.85.
+
+A pre-set peer policy is documented in `peer-policy.md`. The P/E cross-check remains $206.86–$239.69, while Alphabet’s documented EV/revenue cross-check is 10.7747x; neither is averaged into the DCF conclusion. `app.py` is the semi-adjustable product: it has bounded controls, base reset, cases, and visible failed-input/statement checks. The README-only cold run passed on its first attempt; see `docs/cold-run.md`.
+
+The recommendation remains watch/defer because all reported valuation checks remain below the $337.00 market price. The only uncompleted evidence item is the student-authored AI-off prediction/timestamp/commit in the locked changed-input record; this cannot be truthfully supplied by a tool. See `docs/validation-and-ai-use.md`.
 
 ## Current decision
 

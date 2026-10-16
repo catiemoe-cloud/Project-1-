@@ -1,4 +1,4 @@
-"""Interim Apple peer P/E cross-check; not a final peer-policy result."""
+"""Apple peer cross-check: equity P/E and documented EV/revenue evidence."""
 
 from statistics import median
 
@@ -14,7 +14,11 @@ TARGET = {
 
 PEERS = [
     {"ticker": "MSFT", "name": "Microsoft", "price": 497.75, "diluted_eps": 17.95},
-    {"ticker": "GOOGL", "name": "Alphabet", "price": 347.33, "diluted_eps": 10.81},
+    {
+        "ticker": "GOOGL", "name": "Alphabet", "price": 347.33, "diluted_eps": 10.81,
+        "diluted_shares": 12_722.0, "cash_and_securities": 126_843.0,
+        "debt": 48_543.0, "revenue": 402_836.0,
+    },
 ]
 
 
@@ -128,6 +132,16 @@ def main():
     print(f"Maximum-implied price: {format_price(implied_price(maximum_pe))}")
 
     print_removal_sensitivity(valid_peers, median_pe)
+
+    print("\nEV / Revenue Evidence")
+    for peer in valid_peers:
+        fields = ("diluted_shares", "cash_and_securities", "debt", "revenue")
+        if not all(is_positive_number(peer.get(field)) for field in fields):
+            print(f"{peer['ticker']}: not calculated; documented EV inputs are incomplete.")
+            continue
+        equity_value = peer["price"] * peer["diluted_shares"]
+        enterprise_value = equity_value - peer["cash_and_securities"] + peer["debt"]
+        print(f"{peer['ticker']}: EV ${enterprise_value:,.2f}M; EV/revenue {enterprise_value / peer['revenue']:.6f}x")
 
 
 if __name__ == "__main__":
