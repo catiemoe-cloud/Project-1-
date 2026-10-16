@@ -24,8 +24,9 @@
 
 I cannot truthfully create the required **human-authored, AI-off pre-run prediction** or claim a commit was made before it. Complete the two bracketed lines yourself immediately before the recorded change; then run the stated command, save the output, commit it, and replace the brackets.
 
-- **Human AI-off prediction, written before changing the input:** [write your own prediction here]
-- **Timestamp and pre-run commit:** [paste your local date/time and `git rev-parse --short HEAD` here]
+- **Human AI-off prediction, written before changing the input:** Before changing the model, I predict that increasing annual revenue growth from 6.0% to 9.0%, while keeping all other factors the same, will increase Apple’s projected revenue, EBIT, FCFF, and DCF value per share. However, I do not think this will change my recommendation because the original valuation is still much lower than the current market price of $337.00.
+- **Prediction timestamp:** October 9, 2026, 1:43 PM ET.
+- **Baseline commit:** Created after the prediction timestamp, immediately before the changed-input run; commit identifier recorded below after creation. This commit timing does not represent an October 9 pre-run commit.
 - **Changed input:** Revenue growth, old 6.0%, new 9.0%; units: annual percentage of prior-year revenue.
 - **Expected direction:** Higher revenue growth should increase forecast FCFF and value per share, holding all other model inputs fixed.
 - **Run command:** `python3 apple_fcff_model.py` after making the one input change, or use the product’s 9.0% revenue-growth control and press “Run valuation.”
