@@ -4,7 +4,7 @@ Target duration: 5:00 maximum
 
 [00:00] My recommendation is watch/defer Apple. I would not initiate at the recorded $337.00 market price as of September 17, 2026. I will begin with the live analyst workbench.
 
-[00:12] [Open the app at http://127.0.0.1:8000.] The base controls show 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex as a share of revenue, 9% WACC, and 2.5% terminal growth. The base output is $131.61 per share. The table below it shows revenue, EBIT, FCFF, balance-sheet gap, and cash-flow tie for all five forecast years.
+[00:12] [Open the app at http://127.0.0.1:8000.] The base controls show 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex as a share of revenue, 9% WACC, and 2.5% terminal growth. The 9% control is the rounded model input; the documented component WACC is 9.45%. The base output is $131.61 per share. The table below it shows revenue, EBIT, FCFF, balance-sheet gap, and cash-flow tie for all five forecast years.
 
 [00:38] [Change only Revenue growth from 6.0% to 9.0%, then select Run valuation.] The value per share increases to $148.85. This is the same locked changed-input validation in my record. Higher revenue growth increases revenue, EBIT, and FCFF, which increases enterprise value. The decision does not change because $148.85 remains below $337.00.
 

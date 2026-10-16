@@ -8,7 +8,7 @@ Target duration: 3:00 maximum
 
 [00:39] Edition B retains the action but materially changes the evidence. I rebuilt the analysis as an articulating five-year FCFF three-statement model. It forecasts revenue, EBIT, operating assets and liabilities, capital spending, cash flow, and FCFF from FY2026E through FY2030E. Every forecast balance sheet balances and every cash-flow change ties to cash.
 
-[01:07] The base case uses 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex as a share of revenue, 9% WACC, and 2.5% terminal growth. It produces enterprise value of $1,858,504 million and equity value of $1,920,677 million, or $131.61 per share.
+[01:07] The base case uses 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex as a share of revenue, 9% WACC, and 2.5% terminal growth. The 9% model input is the nearest whole-percent representation of a dated 9.45% component build using the Treasury rate, beta, equity-risk premium, debt cost, tax rate, and market-value capital structure. It produces enterprise value of $1,858,504 million and equity value of $1,920,677 million, or $131.61 per share.
 
 [01:33] The enterprise-to-equity bridge adds Apple’s Q3 FY2026 cash and marketable securities of $146,517 million, subtracts $84,344 million of commercial paper and term debt, and divides by 14,594.18 million shares. Lease liabilities remain in operating liabilities, so they are not double counted as debt.
 

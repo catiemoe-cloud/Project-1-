@@ -19,7 +19,7 @@ Edition A remains unchanged in project-1-edition-a.pdf. This Edition B records t
 
 ## Final valuation evidence
 
-The final model forecasts FY2026E–FY2030E revenue, EBIT, operating assets/liabilities, PP&E, cash flow, and FCFF. Base assumptions are 6% annual revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, 9.0% WACC, and 2.5% terminal growth. Base enterprise value is $1,858,504M. The bridge adds $146,517M cash plus marketable securities and subtracts $84,344M commercial paper plus term debt, yielding $1,920,677M equity value, or **$131.61/share**.
+The final model forecasts FY2026E–FY2030E revenue, EBIT, operating assets/liabilities, PP&E, cash flow, and FCFF. Base assumptions are 6% annual revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, 9.0% WACC, and 2.5% terminal growth. The 9.0% model rate is the nearest whole-percent representation of a dated 9.45% risk-free-rate, beta, ERP, debt-cost, tax-rate, and market-value-capital-structure build; its sources and limitations are in `docs/wacc-build.md`. Base enterprise value is $1,858,504M. The bridge adds $146,517M cash plus marketable securities and subtracts $84,344M commercial paper plus term debt, yielding $1,920,677M equity value, or **$131.61/share**.
 
 Causal cases are **$87.07 low / $131.61 base / $185.85 high**. The WACC–terminal-growth grid spans $109.06 to $167.57 per share over 8%–10% WACC and 2.0%–3.0% terminal growth. Terminal value is 74.9% of base enterprise value. The reverse DCF cannot reach $337.00 using constant annual revenue growth from −10% to 30% while holding all other base inputs fixed; this is a bounded market-implied expectation, not proof of mispricing.
 

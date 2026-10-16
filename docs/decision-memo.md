@@ -8,7 +8,7 @@
 
 The five-year FCFF model returns a base enterprise value of **$1,858,504M**. Adding $146,517M of cash and marketable securities and subtracting $84,344M of commercial paper and term debt produces equity value of **$1,920,677M**, or **$131.61 per share** using 14,594.18M shares. The base case is therefore $205.39 below the recorded market price.
 
-The base forecast uses 6% annual revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, a 9.0% WACC, and 2.5% terminal growth. FY2026E–FY2030E FCFF rises from $107,529M to $135,781M. The terminal value is 74.9% of enterprise value, so the conclusion is highly dependent on long-run operating performance and discount-rate assumptions.
+The base forecast uses 6% annual revenue growth, 47.0% gross margin, 15.0% operating expenses/revenue, 3.0% capex/revenue, a 9.0% WACC, and 2.5% terminal growth. A dated CAPM/market-value component build calculates 9.45%; the model uses its nearest whole-percent input and the 8%–10% grid brackets it. The build, definitions, and limitations are in `docs/wacc-build.md`. FY2026E–FY2030E FCFF rises from $107,529M to $135,781M. The terminal value is 74.9% of enterprise value, so the conclusion is highly dependent on long-run operating performance and discount-rate assumptions.
 
 ## Cross-check, risks, and action
 

@@ -9,6 +9,16 @@
     "operating_expense_rate": 0.15,
     "capex_rate": 0.03,
     "wacc": 0.09,
+    "component_wacc": 0.094452,
+    "wacc_components": {
+      "risk_free_rate": 0.0494,
+      "beta": 1.09,
+      "equity_risk_premium": 0.0423,
+      "pre_tax_cost_of_debt": 0.04,
+      "tax_rate_for_shield": 0.176,
+      "market_value_equity": 4918238.66,
+      "market_value_debt": 84344.0
+    },
     "terminal_growth": 0.025,
     "market_price": 337.0
   },

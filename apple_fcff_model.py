@@ -19,6 +19,29 @@ SHARES = 14_594.18  # Q3 FY2026 cover page, millions, July 17, 2026.
 BRIDGE_CASH_AND_SECURITIES = 146_517.0
 BRIDGE_DEBT = 84_344.0
 
+# Valuation-date WACC component build.  The component sources and the choice
+# to use a rounded whole-percent 9.0% model input are documented in
+# docs/wacc-build.md.  Dollar values are USD millions.
+WACC_COMPONENTS = {
+    "risk_free_rate": 0.0494,       # 10-year Treasury, September 17, 2026
+    "beta": 1.09,                   # Yahoo Finance 5-year monthly beta
+    "equity_risk_premium": 0.0423,  # Damodaran implied US ERP, Jan. 1, 2026
+    "pre_tax_cost_of_debt": 0.0400, # documented Apple-note coupon proxy
+    "tax_rate_for_shield": 0.176,   # Apple nine-month FY2026 effective tax rate
+    "market_value_equity": MARKET_PRICE * SHARES,
+    "market_value_debt": BRIDGE_DEBT,
+}
+
+
+def component_wacc() -> float:
+    """CAPM / market-value WACC used to anchor, not mechanically replace, the base rate."""
+    c = WACC_COMPONENTS
+    equity = c["market_value_equity"]
+    debt = c["market_value_debt"]
+    total_capital = equity + debt
+    cost_of_equity = c["risk_free_rate"] + c["beta"] * c["equity_risk_premium"]
+    return (equity / total_capital) * cost_of_equity + (debt / total_capital) * c["pre_tax_cost_of_debt"] * (1 - c["tax_rate_for_shield"])
+
 # FY2025 Form 10-K / September 27, 2025, USD millions.  Aggregated operating
 # assets and liabilities reconcile exactly to the reported balance sheet.
 OPENING = {
@@ -241,6 +264,9 @@ def validation_tests() -> dict:
         "terminal_growth_monotonicity": lower_growth < base < higher_growth,
         "bridge_recomputes": abs((valuation()["enterprise_value"] + BRIDGE_CASH_AND_SECURITIES - BRIDGE_DEBT) / SHARES - base) < 1e-8,
         "grid_valid": all(growth < wacc for wacc, growth in grid),
+        # The model uses a whole-percent 9.0% base input; the independently
+        # calculated component WACC must remain within that rounding band.
+        "component_wacc_rounding": abs(component_wacc() - Assumptions().wacc) < 0.005,
     }
     if not all(checks.values()):
         raise AssertionError(f"Validation failure: {checks}")
@@ -267,6 +293,7 @@ def main() -> None:
     print(f"Equity value: ${base['equity_value']:,.1f}M")
     print(f"Value per share: ${base['value_per_share']:.2f}")
     print(f"Terminal-value share of EV: {base['tv_share_of_ev']:.1%}")
+    print(f"Component WACC: {component_wacc():.2%}; model base WACC: {base['assumptions'].wacc:.1%}")
     for name, result in case_results().items():
         print(f"{name.title()} case value/share: ${result['value_per_share']:.2f}")
     print("WACC / Terminal-Growth Sensitivity: value per share")
