@@ -1,0 +1,33 @@
+{
+  "company": "Apple Inc. (AAPL)",
+  "as_of_date": "2026-09-17",
+  "decision": "Watch / defer; do not initiate at the recorded $337.00 market price.",
+  "units": "USD millions except per-share values and rates",
+  "material_inputs": {
+    "starting_fcff_millions": 131000.0,
+    "fcff_growth_rates": [
+      0.07,
+      0.07,
+      0.07,
+      0.07,
+      0.07
+    ],
+    "wacc": 0.08,
+    "terminal_growth": 0.03,
+    "non_operating_cash_millions": 146517.0,
+    "debt_millions": 84344.0,
+    "shares_millions": 14594.18,
+    "market_price": 337.0
+  },
+  "base_case": {
+    "fcff_year_5_millions": 183734.28,
+    "enterprise_value_millions": 3212985.73,
+    "equity_value_millions": 3275158.73,
+    "value_per_share": 224.42,
+    "terminal_value_share_of_ev": 0.8017
+  },
+  "limitations": [
+    "Starting FCFF and WACC require final filing-based reconciliation.",
+    "This is an interim FCFF DCF; the final project requires an articulating three-statement forecast and documented bridge policy."
+  ]
+}
