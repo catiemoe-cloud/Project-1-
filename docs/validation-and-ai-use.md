@@ -20,21 +20,21 @@
 | EV multiple | EV/revenue could mix definitions | Alphabet EV = price × shares − cash/securities + debt | $4,340,432.26M / $402,836M = 10.774688x | Pass with comparability limitation | `peer-policy.md` |
 | README-only cold run | Hidden dependencies/steps | Fresh directory; execute documented commands | First attempt passed in under one second | Pass | `docs/cold-run.md` |
 
-## Locked Changed-Input Record — requires student completion
+## Locked Changed-Input Record
 
-I cannot truthfully create the required **human-authored, AI-off pre-run prediction** or claim a commit was made before it. Complete the two bracketed lines yourself immediately before the recorded change; then run the stated command, save the output, commit it, and replace the brackets.
+The prediction below was supplied by the student. The baseline commit was created after that prediction timestamp and immediately before the run; this timing is disclosed rather than backdated.
 
 - **Human AI-off prediction, written before changing the input:** Before changing the model, I predict that increasing annual revenue growth from 6.0% to 9.0%, while keeping all other factors the same, will increase Apple’s projected revenue, EBIT, FCFF, and DCF value per share. However, I do not think this will change my recommendation because the original valuation is still much lower than the current market price of $337.00.
 - **Prediction timestamp:** October 9, 2026, 1:43 PM ET.
-- **Baseline commit:** Created after the prediction timestamp, immediately before the changed-input run; commit identifier recorded below after creation. This commit timing does not represent an October 9 pre-run commit.
+- **Baseline commit:** `0ba92e5`, created after the prediction timestamp and immediately before the changed-input run. This commit timing does not represent an October 9 pre-run commit.
 - **Changed input:** Revenue growth, old 6.0%, new 9.0%; units: annual percentage of prior-year revenue.
 - **Expected direction:** Higher revenue growth should increase forecast FCFF and value per share, holding all other model inputs fixed.
 - **Run command:** `python3 apple_fcff_model.py` after making the one input change, or use the product’s 9.0% revenue-growth control and press “Run valuation.”
-- **Actual result:** [record the exact displayed base and changed values from your run]
-- **Decision effect:** [state whether watch/defer changes; do not state it changed unless the recorded output supports it]
-- **Diagnosis:** [briefly explain the causal link from revenue through EBIT, FCFF, and DCF value]
+- **Actual result:** Base value was $131.61/share. With only revenue growth changed to 9.0%, the value increased to $148.85/share. FY2026E revenue / EBIT / FCFF increased from $441,130.66M / $131,195.01M / $107,528.53M to $453,615.49M / $135,190.16M / $110,805.83M. FY2030E revenue / EBIT / FCFF increased from $556,917.29M / $165,448.90M / $135,781.38M to $640,315.28M / $191,414.74M / $156,318.22M. Base and changed cases passed every balance-sheet and cash-flow articulation check.
+- **Decision effect:** Watch/defer did not change because the changed value, $148.85/share, remained below the $337.00 market price.
+- **Diagnosis:** Higher revenue growth increased forecast revenue. With gross margin, operating expenses, capex, WACC, and terminal growth held fixed, the higher revenue path increased EBIT and FCFF; discounting that larger FCFF stream increased enterprise value and value per share.
 
-This is the only remaining student-authorship block in the validation record. Do not freeze the PDF until those fields are completed and the Markdown and PDF match.
+The changed-input record is complete. Freeze the PDF only after confirming that the Markdown and PDF match exactly.
 
 ## Named AI-use register
 
