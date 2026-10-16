@@ -22,6 +22,6 @@
 
 ## Model convention and challenge
 
-The executable model uses a **9.0% whole-percent base input**, which is the nearest whole-percent representation of the 9.45% component calculation. It does not present 9.0% as a directly observed fact. The 8%–10% sensitivity grid brackets the 9.45% component result, and `apple_fcff_model.py` tests that the selected base remains within the half-percentage-point rounding band.
+The executable model uses a **9.0% whole-percent base input**, which is the nearest whole-percent representation of the 9.45% component calculation. It does not present 9.0% as a directly observed fact. The 8%–10% sensitivity grid brackets the 9.45% component result, and `src/apple_fcff_model.py` tests that the selected base remains within the half-percentage-point rounding band.
 
 The recommended next refinement is to replace the 4.00% coupon proxy with a valuation-date Apple bond yield and to refresh beta and ERP on the exact valuation date. A committee that does not accept whole-percent rounding should run the same model at 9.45%; this would lower the base value and would not weaken the current watch/defer action.

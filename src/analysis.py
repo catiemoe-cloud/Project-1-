@@ -19,11 +19,12 @@ from apple_fcff_model import (
 )
 
 
-OUTPUT_PATH = Path("visible_output.json")
+OUTPUT_PATH = Path("output/visible_output.json")
 AS_OF_DATE = "2026-09-17"
 
 
 def main() -> None:
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     base = valuation()
     cases = case_results()
     sensitivity = sensitivity_grid()

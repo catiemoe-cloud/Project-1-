@@ -1,7 +1,7 @@
 item,required,location_or_url,title,duration_or_as_of,timestamp_index,access_checked,frozen_or_commit_id,notes
 Research-Evolution.pdf,yes,https://github.com/catiemoe-cloud/Project-1-/blob/main/docs/research-evolution.pdf,Apple Project 1 Research Evolution,September 17 2026,,,Replace with final commit after all files are frozen,Contains unchanged Edition A plus Edition B
 Repository,yes,https://github.com/catiemoe-cloud/Project-1-,Apple Project 1 Repository,September 17 2026,,,Replace with final commit after all files are frozen,Set repository access for instructional team
-Visible executed output,yes,https://github.com/catiemoe-cloud/Project-1-/blob/main/visible_output.json,Apple FCFF visible output,September 17 2026,,,Replace with final commit after all files are frozen,Shows inputs bridge range and validation without execution
+Visible executed output,yes,https://github.com/catiemoe-cloud/Project-1-/blob/main/output/visible_output.json,Apple FCFF visible output,September 17 2026,,,Replace with final commit after all files are frozen,Shows inputs bridge range and validation without execution
 Decision memo or deck,yes,https://github.com/catiemoe-cloud/Project-1-/blob/main/docs/decision-memo.pdf,Apple Decision Memo,September 17 2026,,,Replace with final commit after all files are frozen,
 Validation-and-AI-Use.pdf,yes,https://github.com/catiemoe-cloud/Project-1-/blob/main/docs/Validation-and-AI-Use.pdf,Apple Validation and AI Use,October 16 2026,,,Replace with final commit after all files are frozen,Must match frozen Brightspace PDF exactly
 Video 1,yes,,Research evolution and AI-output check,,,,,Record upload link title duration and timestamp after recording

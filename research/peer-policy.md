@@ -13,7 +13,7 @@
 
 ## Consistent multiple evidence
 
-The equity-value multiple is P/E using matching-date price divided by the latest annual GAAP diluted EPS public by the valuation date. `peer_valuation.py` calculates Microsoft at 27.729805x and Alphabet at 32.130435x; the $206.86–$239.69 Apple implied range is retained only as a qualified cross-check.
+The equity-value multiple is P/E using matching-date price divided by the latest annual GAAP diluted EPS public by the valuation date. `src/peer_valuation.py` calculates Microsoft at 27.729805x and Alphabet at 32.130435x; the $206.86–$239.69 Apple implied range is retained only as a qualified cross-check.
 
 The EV multiple is **EV/revenue**, not EV/EBITDA, because both Apple and Alphabet report revenue on a consistent annual GAAP basis and this avoids an unsupported EBITDA add-back. For Alphabet, the transparent, documented approximation is:
 

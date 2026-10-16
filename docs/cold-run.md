@@ -6,15 +6,15 @@
 
 ## Procedure and result
 
-1. Copied only `README.md`, `apple_fcff_model.py`, `analysis.py`, `peer_valuation.py`, and `app.py` into a fresh directory.
+1. Copied only `README.md` and the four files in `src/` into a fresh directory.
 2. Ran the four README commands and the workbench render checks.
 3. Result: **pass on first attempt**; elapsed time was less than one second (shell display rounded to 0 seconds).
 
 | Command / check | Result | Evidence |
 |---|---|---|
-| `python3 -B apple_fcff_model.py` | Pass | FY2026E–FY2030E balance-sheet gaps and cash-flow ties each printed 0.00; base value $131.61/share. |
-| `python3 -B analysis.py` | Pass | Regenerated `visible_output.json` from the final FCFF engine. |
-| `python3 -B peer_valuation.py` | Pass | P/E cross-check and Alphabet EV/revenue evidence printed. |
+| `python3 -B src/apple_fcff_model.py` | Pass | FY2026E–FY2030E balance-sheet gaps and cash-flow ties each printed 0.00; base value $131.61/share. |
+| `python3 -B src/analysis.py` | Pass | Regenerated `output/visible_output.json` from the final FCFF engine. |
+| `python3 -B src/peer_valuation.py` | Pass | P/E cross-check and Alphabet EV/revenue evidence printed. |
 | `app.render({})` | Pass | Rendered base workbench, including $131.61/share output. |
 | `app.render({'wacc': ['5']})` | Pass | Returned visible “Input check failed” rather than a valuation. |
 

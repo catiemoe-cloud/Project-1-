@@ -7,7 +7,7 @@
 
 > **Prior-work disclosure:** This preliminary company baseline builds on my existing Apple course files and is not a final valuation or recommendation. Those working files were consulted for continuity of historical facts, forecast structure, sensitivity planning, and previously documented validation work. Current filing facts in this document are independently identified below and take precedence where they differ.
 >
-> **Existing files consulted:** [Apple FY2025 filing facts](apple-2025-10k-filing-facts.md) · [Apple pro-forma model](apple_proforma.py) · [Apple sensitivity plan](apple_sensitivity_plan.md) · [Locked changed-input record](apple_lab10_locked_record.md) · [Sensitivity output](apple_lab10_sensitivity_output.md)
+> **Existing files consulted:** [Apple FY2025 filing facts](../../research/apple-2025-10k-filing-facts.md) · [Apple pro-forma model](../../archive/apple_proforma.py) · [Apple sensitivity plan](../../archive/apple_sensitivity_plan.md) · [Locked changed-input record](../../archive/apple_lab10_locked_record.md) · [Sensitivity output](../../archive/apple_lab10_sensitivity_output.md)
 
 ## Primary filing and financial evidence
 

@@ -3,6 +3,8 @@
 This directory contains the current project-source records and frozen PDFs:
 
 - `research-evolution.pdf` — unchanged Edition A followed by current Edition B.
+- `edition-a/` — preserved Edition A source artifacts; `edition-b.md` — current Edition B source.
+- `final-readiness-audit.md` — final submission checklist and remaining student-only actions.
 - `decision-memo.pdf` — decision memo source-equivalent to `decision-memo.md`.
 - `Validation-and-AI-Use.pdf` — frozen record source-equivalent to `validation-and-ai-use.md` at the current repository commit.
 - `assumption-challenge-record.md` — base-year normalization and driver evidence/challenges.

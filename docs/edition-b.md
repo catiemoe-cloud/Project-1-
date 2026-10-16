@@ -6,7 +6,7 @@
 **Currency/share basis:** USD millions except per-share values; 14,594.18M point-in-time shares
 **Action:** **Watch/defer; do not initiate at the recorded $337.00 per-share price.**
 
-Edition A remains unchanged in project-1-edition-a.pdf. This Edition B records the post-checkpoint research, model, validation, and AI-use evolution.
+Edition A remains unchanged in `edition-a/project-1-edition-a.pdf`. This Edition B records the post-checkpoint research, model, validation, and AI-use evolution.
 
 ## A-to-B change table
 
