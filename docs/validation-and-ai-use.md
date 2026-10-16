@@ -16,6 +16,8 @@
 | Enterprise-to-equity bridge | Cash/debt could be omitted or double counted | EV + $146,517M − $84,344M, divided by 14,594.18M shares | Base EV $1,858,503.5M; equity $1,920,676.5M; $131.61/share | Pass | `analysis.py`; Q3 FY2026 10-Q |
 | Product guardrails | Incoherent inputs could show a false value | Render with WACC 5%; expected error | Returned “Input check failed” | Pass | `app.py`; `docs/cold-run.md` |
 | Known answer | Code change could silently alter base case | Base model must return $131.61/share | Returned $131.61/share | Pass | `visible_output.json` |
+| Published training known answer | DCF mechanics could be wrong despite an Apple output | Week 3 case must return $27.50/share; 11% WACC probe about $23.41 | $27.50 and $23.41 | Pass | `apple_fcff_model.py`; Week 3 worked example |
+| DCF monotonicity and boundary | Sensitivity could move in the wrong direction or value an invalid terminal rate | WACC up must reduce value; terminal growth up must increase value; every grid cell has g < WACC | Passed; 8%–10% WACC and 2.0%–3.0% g grid | Pass | `apple_fcff_model.py`; `visible_output.json` |
 | Equity multiple | Peer P/E could be inconsistent | Manual MSFT check: $497.75 ÷ $17.95 | 27.729805x | Pass | `peer_valuation.py` |
 | EV multiple | EV/revenue could mix definitions | Alphabet EV = price × shares − cash/securities + debt | $4,340,432.26M / $402,836M = 10.774688x | Pass with comparability limitation | `peer-policy.md` |
 | README-only cold run | Hidden dependencies/steps | Fresh directory; execute documented commands | First attempt passed in under one second | Pass | `docs/cold-run.md` |

@@ -25,12 +25,15 @@ Open `http://127.0.0.1:8000` after starting `app.py`. The app has bounded operat
 
 The enterprise-to-equity bridge uses the Q3 FY2026 Form 10-Q: add $146,517M of cash plus marketable securities; subtract $84,344M of commercial paper plus term debt; divide by 14,594.18M shares outstanding. Operating lease liabilities remain in operating liabilities, so they are not double counted as debt. The base case uses 6% revenue growth, 47.0% gross margin, 15.0% operating expense / revenue, 3.0% capex / revenue, 9.0% WACC, and 2.5% terminal growth. These are documented forecast assumptions, not reported facts.
 
+The engine also prints causal low/base/high cases, a 3×3 WACC–terminal-growth grid, terminal-value share, a reverse-DCF search, the published Week 3 training-case reconciliation, and monotonicity/bridge checks. See `docs/assumption-challenge-record.md` for the base-year contamination catalog, every load-bearing driver, its basis, challenge, and evidence that would change it.
+
 ## Repository map
 
 - `apple_fcff_model.py` — final three-statement FCFF engine, cases, bridge, and checks.
 - `app.py` — semi-adjustable local analyst product used for the live demo.
 - `analysis.py` / `visible_output.json` — visible executed output.
 - `peer_valuation.py` and `peer-policy.md` — peer policy and market cross-check.
+- `docs/assumption-challenge-record.md` — normalization, driver basis, and challenge record.
 - `docs/` — research evolution, decision memo, validation/AI-use record, and video transcripts.
 - `sources.md` — source log; `apple-2025-10k-filing-facts.md` — filing-based company research.
 

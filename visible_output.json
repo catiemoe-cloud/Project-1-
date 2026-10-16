@@ -42,6 +42,29 @@
     "base": 131.61,
     "high": 185.85
   },
+  "wacc_terminal_growth_sensitivity": {
+    "wacc_8.0%_g_2.0%": 144.78,
+    "wacc_8.0%_g_2.5%": 155.14,
+    "wacc_8.0%_g_3.0%": 167.57,
+    "wacc_9.0%_g_2.0%": 124.36,
+    "wacc_9.0%_g_2.5%": 131.61,
+    "wacc_9.0%_g_3.0%": 140.06,
+    "wacc_10.0%_g_2.0%": 109.06,
+    "wacc_10.0%_g_2.5%": 114.36,
+    "wacc_10.0%_g_3.0%": 120.41
+  },
+  "reverse_dcf": {
+    "solved_variable": "constant annual revenue growth, holding all other base inputs fixed",
+    "target_price": 337.0,
+    "search_range": "-10% to 30%",
+    "result": null,
+    "interpretation": "No solution in the stated range"
+  },
+  "validation": {
+    "training_known_answer_value_per_share": 27.5,
+    "training_wacc_probe_value_per_share": 23.41,
+    "all_checks_passed": true
+  },
   "limitations": [
     "Aggregate operating-asset and operating-liability forecast, not every reported Apple line item.",
     "Comparable-company output is a cross-check and is not averaged with DCF."

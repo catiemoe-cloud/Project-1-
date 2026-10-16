@@ -9,6 +9,7 @@ return to common shareholders rather than an unsupported debt plug.
 """
 
 from dataclasses import dataclass, replace
+from typing import Optional
 
 
 YEARS = (2026, 2027, 2028, 2029, 2030)
@@ -55,8 +56,8 @@ class Assumptions:
 def validate(assumptions: Assumptions) -> list[str]:
     """Return user-visible errors rather than producing incoherent output."""
     errors = []
-    if not -0.10 <= assumptions.revenue_growth <= 0.15:
-        errors.append("Revenue growth must be between -10% and 15%.")
+    if not -0.10 <= assumptions.revenue_growth <= 0.30:
+        errors.append("Revenue growth must be between -10% and 30%.")
     if not 0.35 <= assumptions.gross_margin <= 0.60:
         errors.append("Gross margin must be between 35% and 60%.")
     if not 0.08 <= assumptions.operating_expense_rate <= 0.25:
@@ -177,6 +178,75 @@ def case_results() -> dict:
     return {name: valuation(case) for name, case in cases.items()}
 
 
+def sensitivity_grid() -> dict:
+    """Return the required WACC-terminal-growth sensitivity grid."""
+    waccs = (0.08, 0.09, 0.10)
+    growths = (0.020, 0.025, 0.030)
+    grid = {}
+    for wacc in waccs:
+        for terminal_growth in growths:
+            grid[(wacc, terminal_growth)] = valuation(
+                replace(Assumptions(), wacc=wacc, terminal_growth=terminal_growth)
+            )["value_per_share"]
+    return grid
+
+
+def reverse_revenue_growth(target_price: float = MARKET_PRICE) -> Optional[float]:
+    """Solve the constant annual revenue-growth assumption that reaches price."""
+    lower, upper = -0.10, 0.30
+    def difference(growth: float) -> float:
+        return valuation(replace(Assumptions(), revenue_growth=growth))["value_per_share"] - target_price
+    lower_difference, upper_difference = difference(lower), difference(upper)
+    if lower_difference * upper_difference > 0:
+        return None
+    for _ in range(100):
+        midpoint = (lower + upper) / 2
+        midpoint_difference = difference(midpoint)
+        if abs(midpoint_difference) < 1e-8:
+            return midpoint
+        if lower_difference * midpoint_difference < 0:
+            upper = midpoint
+        else:
+            lower, lower_difference = midpoint, midpoint_difference
+    return (lower + upper) / 2
+
+
+def training_case_value(wacc: float = 0.10, terminal_growth: float = 0.03) -> float:
+    """Course Week 3 known-answer FCFF DCF; independent of Apple inputs."""
+    fcff = 100.0
+    growths = (0.08, 0.06, 0.05, 0.04, 0.03)
+    pv_explicit = 0.0
+    for year, growth in enumerate(growths, start=1):
+        fcff *= 1 + growth
+        pv_explicit += fcff / (1 + wacc) ** year
+    terminal_value = fcff * (1 + terminal_growth) / (wacc - terminal_growth)
+    enterprise_value = pv_explicit + terminal_value / (1 + wacc) ** 5
+    return (enterprise_value + 50.0 - 300.0) / 50.0
+
+
+def validation_tests() -> dict:
+    """Known-answer, DCF-boundary, and monotonicity tests for the final engine."""
+    training_value = training_case_value()
+    training_wacc_probe = training_case_value(wacc=0.11)
+    grid = sensitivity_grid()
+    base = valuation()["value_per_share"]
+    lower_wacc = valuation(replace(Assumptions(), wacc=0.08))["value_per_share"]
+    higher_wacc = valuation(replace(Assumptions(), wacc=0.10))["value_per_share"]
+    lower_growth = valuation(replace(Assumptions(), terminal_growth=0.02))["value_per_share"]
+    higher_growth = valuation(replace(Assumptions(), terminal_growth=0.03))["value_per_share"]
+    checks = {
+        "training_known_answer": abs(training_value - 27.50) < 0.01,
+        "training_wacc_probe": abs(training_wacc_probe - 23.41) < 0.02,
+        "wacc_monotonicity": lower_wacc > base > higher_wacc,
+        "terminal_growth_monotonicity": lower_growth < base < higher_growth,
+        "bridge_recomputes": abs((valuation()["enterprise_value"] + BRIDGE_CASH_AND_SECURITIES - BRIDGE_DEBT) / SHARES - base) < 1e-8,
+        "grid_valid": all(growth < wacc for wacc, growth in grid),
+    }
+    if not all(checks.values()):
+        raise AssertionError(f"Validation failure: {checks}")
+    return {"checks": checks, "training_value": training_value, "training_wacc_probe": training_wacc_probe, "grid": grid}
+
+
 def _money(value: float) -> str:
     return f"{value:,.1f}"
 
@@ -199,6 +269,18 @@ def main() -> None:
     print(f"Terminal-value share of EV: {base['tv_share_of_ev']:.1%}")
     for name, result in case_results().items():
         print(f"{name.title()} case value/share: ${result['value_per_share']:.2f}")
+    print("WACC / Terminal-Growth Sensitivity: value per share")
+    grid = sensitivity_grid()
+    for wacc in (0.08, 0.09, 0.10):
+        values = " | ".join(f"g {growth:.1%}: ${grid[(wacc, growth)]:.2f}" for growth in (0.020, 0.025, 0.030))
+        print(f"WACC {wacc:.1%}: {values}")
+    implied_growth = reverse_revenue_growth()
+    if implied_growth is None:
+        print(f"Reverse DCF: no revenue-growth solution for ${MARKET_PRICE:.2f} in -10% to 30% range.")
+    else:
+        print(f"Reverse DCF: ${MARKET_PRICE:.2f} implies {implied_growth:.2%} annual revenue growth, holding other base inputs fixed.")
+    validation = validation_tests()
+    print(f"Training known answer: ${validation['training_value']:.2f}; 11% WACC probe: ${validation['training_wacc_probe']:.2f}; all checks: PASS")
 
 
 if __name__ == "__main__":

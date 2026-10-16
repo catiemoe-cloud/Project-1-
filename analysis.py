@@ -10,6 +10,9 @@ from apple_fcff_model import (
     SHARES,
     Assumptions,
     case_results,
+    reverse_revenue_growth,
+    sensitivity_grid,
+    validation_tests,
     valuation,
 )
 
@@ -21,6 +24,8 @@ AS_OF_DATE = "2026-09-17"
 def main() -> None:
     base = valuation()
     cases = case_results()
+    sensitivity = sensitivity_grid()
+    validation = validation_tests()
     inputs = Assumptions()
     payload = {
         "company": "Apple Inc. (AAPL)",
@@ -50,6 +55,22 @@ def main() -> None:
             "balance_sheet_gaps_millions": {str(row["year"]): round(row["balance_gap"], 2) for row in base["rows"]},
         },
         "causal_cases_value_per_share": {name: round(item["value_per_share"], 2) for name, item in cases.items()},
+        "wacc_terminal_growth_sensitivity": {
+            f"wacc_{wacc:.1%}_g_{growth:.1%}": round(value, 2)
+            for (wacc, growth), value in sensitivity.items()
+        },
+        "reverse_dcf": {
+            "solved_variable": "constant annual revenue growth, holding all other base inputs fixed",
+            "target_price": MARKET_PRICE,
+            "search_range": "-10% to 30%",
+            "result": None if reverse_revenue_growth() is None else round(reverse_revenue_growth(), 6),
+            "interpretation": "No solution in the stated range" if reverse_revenue_growth() is None else "Solved growth rate",
+        },
+        "validation": {
+            "training_known_answer_value_per_share": round(validation["training_value"], 2),
+            "training_wacc_probe_value_per_share": round(validation["training_wacc_probe"], 2),
+            "all_checks_passed": all(validation["checks"].values()),
+        },
         "limitations": [
             "Aggregate operating-asset and operating-liability forecast, not every reported Apple line item.",
             "Comparable-company output is a cross-check and is not averaged with DCF.",
