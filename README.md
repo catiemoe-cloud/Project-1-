@@ -6,7 +6,7 @@ This locally runnable workbench supports a buy-side investment committee decidin
 
 ## Setup and run
 
-Python 3.10+ is required; there are no third-party dependencies or credentials.
+Python 3.9+ is required; there are no third-party dependencies or credentials.
 
 ```bash
 python3 apple_fcff_model.py

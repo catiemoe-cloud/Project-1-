@@ -4,7 +4,7 @@
 
 - **Decision/user:** Watch/defer Apple for a buy-side investment committee with no current position.
 - **Source cut-off:** September 17, 2026 for market-price comparison; FY2025 audited statements for opening balances; Q3 FY2026 Form 10-Q for the bridge.
-- **Environment:** Python standard library only; Python 3.10+ documented in README.
+- **Environment:** Python standard library only; Python 3.9+ documented in README.
 - **Repository:** https://github.com/catiemoe-cloud/Project-1-
 
 ## Validation register
