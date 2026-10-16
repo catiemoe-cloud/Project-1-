@@ -27,4 +27,10 @@
 
 ## Fresh-eyes challenge
 
-**Still required before submission:** paste a real classmate, office-hours, or instructor challenge here, identify the challenger, and answer it in your own words. Do not invent a partner interaction.
+**Challenger:** Allie Vinatieri, classmate.
+
+**Question:** “Your revenue-growth assumption is 6% for all five years. Why doesn’t growth fade over time for a mature company like Apple?”
+
+**Response:** “A flat 6% growth rate is a simplifying base-case assumption, not a claim that Apple can compound at the same rate forever.I used 6% growth because I expect Apple's Services and other products to continue growing. However, I know that assuming the same growth rate every year may not be realistic. My low case uses 2% growth to show what could happen if Apple underperforms, while my high case shows the impact of stronger growth. If future reports show slower Services growth, lower iPhone demand, or continued struggles in China, I would lower my growth assumptions and reevaluate the valuation. On the other hand, if Apple continues to perform well in these areas, I would feel more confident keeping or increasing my growth rate.”
+
+**Revision from the challenge:** The current base case remains a transparent flat-rate simplification. A declining growth path is an identified next revision if the monitored operating evidence weakens; the base, low, and high cases make this limitation visible rather than hiding it.
