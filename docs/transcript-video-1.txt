@@ -1,18 +1,19 @@
 PROJECT 1 — VIDEO 1: RESEARCH EVOLUTION AND AI-OUTPUT CHECK
-DRAFT RECORDING SCRIPT — REPLACE WITH A TRANSCRIPT MATCHING THE FINAL RECORDING
+RECORDING-READY SCRIPT — replace only after recording if your spoken wording differs
 Target duration: 3:00 maximum
 
-[00:00] I am evaluating Apple for a buy-side investment committee that has no current position. My current recommendation is watch/defer. I would not initiate at the September 17, 2026 price of $337.00 per share.
+[00:00] I am evaluating Apple for a buy-side investment committee with no current position. As of September 17, 2026, my recommendation is watch/defer. I would not initiate at the recorded market price of $337.00 per share.
 
-[00:18] My unchanged Edition A was a preliminary watch/defer view. At that point, I had Apple’s FY2025 10-K and Q3 FY2026 10-Q evidence, but I had not yet completed a valuation relative to market price. I identified Services growth, product-cycle exposure, Greater China, regulation, and capital allocation as decision-critical questions.
+[00:15] My unchanged Edition A was an initial research plan and watch/defer view. I had Apple’s FY2025 10-K and Q3 FY2026 10-Q, and I identified Services growth, product-cycle exposure, Greater China, regulation, and capital allocation as decision-critical questions. I had not yet built a reproducible valuation relative to market price.
 
-[00:43] Edition B keeps the action the same but changes the evidence. My current FCFF DCF produces $224.42 per share using a 7% five-year FCFF growth path, 8% WACC, and 3% terminal growth. A provisional P/E cross-check using Microsoft and Alphabet produces a $206.86 to $239.69 range. I do not average those methods because the peer businesses have material differences from Apple.
+[00:39] Edition B retains the action but materially changes the evidence. I rebuilt the analysis as an articulating five-year FCFF three-statement model. It forecasts revenue, EBIT, operating assets and liabilities, capital spending, cash flow, and FCFF from FY2026E through FY2030E. Every forecast balance sheet balances and every cash-flow change ties to cash.
 
-[01:16] The most important research change was architectural. I reviewed my existing Apple workbench and found that it calculates FCFE. Project 1 requires FCFF with WACC and an enterprise-to-equity bridge. I accepted the FCFF DCF as the current valuation engine and qualified the FCFE workbench as sensitivity evidence only. The final model still needs an articulating three-statement FCFF forecast.
+[01:07] The base case uses 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex as a share of revenue, 9% WACC, and 2.5% terminal growth. It produces enterprise value of $1,858,504 million and equity value of $1,920,677 million, or $131.61 per share.
 
-[01:48] I used Codex as a research-organization and model-review tool. One AI-assisted challenge identified peer comparability as the weakest supported assumption. I independently checked the cited business-model differences: Microsoft has far more enterprise software and cloud exposure, while Alphabet is much more advertising-led. I therefore qualified, rather than accepted, the peer output. They remain leads, not final peers.
+[01:33] The enterprise-to-equity bridge adds Apple’s Q3 FY2026 cash and marketable securities of $146,517 million, subtracts $84,344 million of commercial paper and term debt, and divides by 14,594.18 million shares. Lease liabilities remain in operating liabilities, so they are not double counted as debt.
 
-[02:20] The reverse DCF also tests my conclusion. At the $337.00 market price, the model requires about a 9.955 percentage-point increase to each explicit FCFF growth assumption while holding the other inputs fixed. That is not proof that Apple is overvalued; it is the specific assumption I need to investigate.
+[01:56] I also froze a peer-selection policy before interpreting the peer output. Microsoft and Alphabet are qualified cross-checks, not substitutes for Apple. The P/E range is $206.86 to $239.69 per share, and Alphabet’s documented EV-to-revenue multiple is 10.7747 times. I do not average those results into the DCF because their business mixes differ materially from Apple’s.
 
-[02:47] My conclusion remains watch/defer. I will revise it only after I can validate the FCFF starting point, WACC, enterprise-to-equity bridge, peer policy, and full pro-forma. The complete AI-use and validation record is in docs/validation-and-ai-use.md.
+[02:20] I used Codex for documentation organization, code drafting, and model review. I independently checked the resulting model through balance-sheet and cash-flow tests, filing-linked bridge inputs, a cold run, and a locked changed-input test. In that test, increasing revenue growth from 6% to 9%, with other inputs fixed, increased value from $131.61 to $148.85 per share but did not change watch/defer.
 
+[02:50] My conclusion remains watch/defer. The complete validation and AI-use record is in docs/validation-and-ai-use.md.

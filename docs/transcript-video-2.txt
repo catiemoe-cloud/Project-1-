@@ -1,24 +1,23 @@
 PROJECT 1 — VIDEO 2: CODEBASE AND VALIDATION WALKTHROUGH
-DRAFT RECORDING SCRIPT — REPLACE WITH A TRANSCRIPT MATCHING THE FINAL RECORDING
+RECORDING-READY SCRIPT — replace only after recording if your spoken wording differs
 Target duration: 5:00 maximum
 
-[00:00] This is my Apple Project 1 repository. The current decision is watch/defer for a buy-side committee as of September 17, 2026. I will show how the submitted analysis produces the visible output and then demonstrate the highest-risk validation issue.
+[00:00] This is my Apple Project 1 repository. It supports a buy-side investment committee decision as of September 17, 2026. The current recommendation is watch/defer because the recorded $337.00 market price is above every reported valuation cross-check.
 
-[00:20] The source ledger is sources.md. The research-evolution documents are project-1-edition-a and project-1-edition-b. The current FCFF valuation engine is dcf.py. analysis.py imports the DCF inputs and writes visible_output.json, which is the frozen result a grader can inspect without running code.
+[00:18] The repository map is in the README. apple_fcff_model.py is the final valuation engine. app.py is the local analyst product. analysis.py writes visible_output.json, so a grader can inspect the as-of date, assumptions, bridge, valuation result, and cases without executing code. peer-policy.md documents selection before interpreting peer results.
 
-[00:48] In dcf.py, the material inputs are starting FCFF of $131.0 billion, five years of 7% FCFF growth, 8% WACC, 3% terminal growth, $146.517 billion of non-operating cash and marketable securities, $84.344 billion of debt, and 14.594 billion shares. The script discounts the explicit cash flows, calculates terminal value at the end of Year 5, discounts it five years, then adds non-operating assets and subtracts debt to produce equity value per share.
+[00:43] I begin in apple_fcff_model.py. The model starts with Apple’s FY2025 reported balance sheet. It forecasts revenue, gross profit, operating expenses, depreciation, EBIT, taxes, and net income. It then forecasts operating assets and liabilities as revenue-based drivers, rolls forward PP&E using capex and depreciation, and derives both cash from operations and FCFF.
 
-[01:28] I run python3 dcf.py. The base case reports a value of $224.4154 per share. It also reports a terminal-value share of 80.17% of enterprise value, a WACC–terminal-growth sensitivity grid, and a reverse DCF. The terminal-growth guard stops the calculation if terminal growth is greater than or equal to WACC.
+[01:15] FCFF is NOPAT plus depreciation, less capex and the change in operating net working capital. Financing and capital return are excluded from FCFF. The model includes two loud checks in every forecast year: assets must equal liabilities plus equity, and the cash-flow statement’s change in cash must equal the balance sheet’s change in cash.
 
-[02:02] I then run python3 analysis.py. It writes visible_output.json with the as-of date, decision, units, material inputs, base valuation result, and limitations. This avoids manually typing a valuation result into the visible artifact.
+[01:43] I run python3 apple_fcff_model.py. The base output is $131.61 per share. The script shows zero balance-sheet gaps and zero cash-flow ties from FY2026E through FY2030E. It also shows causal low, base, and high values of $87.07, $131.61, and $185.85 per share. These cases change operating drivers and valuation assumptions together, rather than changing only WACC.
 
-[02:28] The highest-risk financial issue is not a Python exception. It is the FCFF starting-point and architecture risk. The $131.0 billion starting FCFF is currently an interim estimate, and the separate Apple workbench calculates FCFE rather than FCFF. I do not treat that workbench as the final valuation engine.
+[02:14] The model’s enterprise-to-equity bridge uses the Q3 FY2026 10-Q. It adds $146,517 million of cash plus marketable securities, subtracts $84,344 million of commercial paper plus term debt, and divides by 14,594.18 million shares. The terminal value is 74.9% of enterprise value, which is a material sensitivity and is disclosed rather than hidden.
 
-[02:57] I demonstrate the existing sensitivity runner with python3 apple_lab10_sensitivity.py --run. It changes one driver at a time and restores the base case after the sensitivity tests. Revenue growth has a larger output range than gross margin over the chosen ranges. However, these are FCFE sensitivity results, so they are supporting operating-driver evidence rather than final FCFF valuation evidence.
+[02:43] Next I run python3 analysis.py. This regenerates visible_output.json from the same final engine, eliminating manual transcription risk. Then I run python3 peer_valuation.py. It produces a P/E cross-check using Microsoft and Alphabet and Alphabet’s documented EV-to-revenue evidence. The peer policy explains why I use it as a non-averaged market check.
 
-[03:34] I also run python3 peer_valuation.py. It produces the interim Microsoft and Alphabet P/E cross-check and removal sensitivity. The code runs, but I qualify the result because the final peer policy, EV multiple, and equity-value multiple are not complete.
+[03:13] The highest-risk validation is whether the financial statements actually articulate. The README-only cold run copies only the runnable source and README into a fresh directory. It passed on its first attempt with no third-party dependencies. The cold-run record preserves the first-failure review, elapsed time, and highest-risk test.
 
-[04:05] The required next repair is to build an Apple-specific, articulating three-statement forecast that generates FCFF. It must balance each year, tie cash flow to cash, use sourced WACC and bridge conventions, and feed the same engine that supplies the interface and visible output.
+[03:39] I also performed a locked changed-input validation. Before the run, I predicted that increasing revenue growth from 6% to 9% would raise revenue, EBIT, FCFF, and value per share without changing the recommendation. I then changed only that input. Value rose from $131.61 to $148.85, and both the base and changed cases passed all articulation checks. Watch/defer remained unchanged because $148.85 is still below $337.00.
 
-[04:34] A clean user can reproduce the current interim output with the README commands and Python 3.10 or newer; no third-party packages or credentials are required. The current limitations and AI-use record are in docs/validation-and-ai-use.md.
-
+[04:14] Finally, app.py uses bounded controls and validation. It rejects inputs outside the permitted range rather than returning an incoherent result. The validation and AI-use record identifies the tool used, its role, the independent checks, and the limits of the analysis. A clean user can reproduce the visible output with the README commands and Python only.
