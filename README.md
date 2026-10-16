@@ -29,6 +29,8 @@ The engine also prints causal low/base/high cases, a 3×3 WACC–terminal-growth
 
 ## Repository map
 
+The runnable final path is the four commands in **Setup and run** and the files listed below. Dated top-level lab and working files are retained only as traceable development history; they are not final valuation evidence and must not be used in place of `apple_fcff_model.py`, `visible_output.json`, or the `docs/` final artifacts.
+
 - `apple_fcff_model.py` — final three-statement FCFF engine, cases, bridge, and checks.
 - `app.py` — semi-adjustable local analyst product used for the live demo.
 - `analysis.py` / `visible_output.json` — visible executed output.

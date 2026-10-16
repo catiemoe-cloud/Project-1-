@@ -1,37 +1,20 @@
-# Project 1 Requirements Audit
+# Project 1 Final Readiness Audit
 
-**Audit date:** October 15, 2026  
-**Materials reviewed:** the Project 1 brief, submission architecture, AI Boundary Card, major-project checklist, annotated exemplar/non-example, Research Evolution / Validation / Decision Memo / Manifest templates, starter README guidance, and Weeks 2, 7, and 8 Project 1 materials in the instructor repository.
+**Audit date:** October 16, 2026. This document identifies the final evidence path and the remaining student-only submission steps. It supersedes the earlier planning audit.
 
-This is a requirements audit, not a claim that the project is final or submission-ready.
-
-| Requirement | Current status | Evidence / next action |
+| Requirement | Status | Final evidence / qualification |
 |---|---|---|
-| Eligible operating-company target | Meets | Apple is an operating company compatible with an FCFF / enterprise-value framework. |
-| Unchanged Edition A baseline | Partial | `project-1-edition-a.pdf` exists. Preserve the actual Brightspace receipt/attempt ID and do not edit the submitted version. |
-| AI-boundary compliance | Verify with instructor / Brightspace | The published GitHub rule says Edition A is AI-closed, while the student reports different instructor direction. Preserve any written instructor clarification and use truthful AI disclosure; do not make an AI-free attestation if it is not true. |
-| Edition B A-to-B evolution | In progress | `project-1-edition-b.md` now contains the required table, disclosed AI assistance, current decision, and ending explanation. |
-| Five-year three-statement pro-forma | Missing final version | Existing `apple_proforma.py` is a simplified FCFE model; rebuild to a company-specific, articulating income statement, balance sheet, and cash-flow statement. |
-| FCFF DCF, WACC, terminal value, bridge | Partial | `dcf.py` runs an FCFF case, but starting FCFF, WACC, and bridge conventions need full reconciliation and source support. |
-| Normalization / historical-input evidence | Partial | Filing facts exist, but the base-year one-time-item / basis-change decision is not documented. |
-| Low/base/high cases and sensitivity | Partial | WACC–growth and FCFE driver sensitivities exist; add causal FCFF low/base/high cases linked through the statements. |
-| Comparable-company policy and multiples | Partial | P/E cross-check exists. Freeze a peer policy before final selection; add at least one consistent EV multiple and one equity-value multiple. |
-| Semi-adjustable analyst product | Missing | Build bounded controls, base reset, live sensitivity results, and visible checks that fail loudly. A notebook with widgets is sufficient. |
-| Known-answer / source / changed-input validation | Partial | Existing labs support sensitivity checks. Create the final locked changed-input record with pre-run human prediction, commit, units, result, decision effect, and diagnosis. |
-| Cold run and highest-risk failure test | Missing | Run the README-only clean-environment test; preserve first failure, elapsed time, repair/limitation, and highest-risk test. |
-| README, environment, visible output | Partial | `README.md`, `requirements.txt`, `.env.example`, `analysis.py`, and generated `visible_output.json` exist; complete the final model and clean-environment cold run. |
-| Validation and AI-use record | Partial | Working `docs/validation-and-ai-use.md` exists; freeze a matching `Validation-and-AI-Use.pdf` at final submission. |
-| Decision memo/deck | Partial | Working `docs/decision-memo.md` exists; finalize a ≤2-page PDF memo or ≤8-main-slide deck. |
-| Videos and transcripts | Missing | Record Video 1 ≤3:00, Video 2 ≤5:00, Video 3 ≤5:00. Video 3 must begin with the live product demo. Correct and submit all transcripts. |
-| Submission manifest / access | Missing | Complete all 12 manifest rows, use stable links, verify instructional-team repository/video access, and run the supplied manifest audit. |
+| Eligible target, user, decision, horizon, constraints | Ready | Apple common stock; buy-side committee with no position; September 17, 2026 initiation decision; watch/defer, not a point target. See `README.md`, Edition B, and memo. |
+| Unchanged Edition A plus Edition B | Ready, subject to Brightspace receipt | `docs/research-evolution.pdf` contains the unchanged Edition A PDF followed by Edition B. Preserve the original Brightspace receipt; Git history cannot replace it. |
+| Traceable data and normalization | Ready | FY2025 10-K opening statements; Q3 FY2026 10-Q bridge; dated $337.00 price; source log, contamination catalog, and WACC build disclose timing, definitions, and limitations. |
+| Five-year articulating pro forma and FCFF DCF | Ready | `apple_fcff_model.py` forecasts FY2026E–FY2030E income statement, balance sheet, cash flow, FCFF, cases, terminal value, and enterprise-to-equity bridge; each annual balance and cash-flow tie is checked. |
+| WACC and valuation range | Ready, with disclosed judgment | `docs/wacc-build.md` documents the 9.45% component calculation. The model uses a rounded 9.0% base input and shows an 8%–10% grid. Low/base/high is $87.07/$131.61/$185.85 per share. |
+| Peer policy and methods | Ready | `peer-policy.md` and `peer_valuation.py` contain policy, an equity P/E multiple, an EV/revenue multiple, qualification, and non-averaging rationale. |
+| Product, visible output, setup, environment | Ready | `app.py`, `visible_output.json`, `README.md`, `requirements.txt`, and `.env.example`; only Python standard library is needed. |
+| Validation and AI-use record | Ready, with disclosed timing limitation | Known answer, independent filing check, WACC build, articulation, monotonicity, bridge, peer checks, cold run, AI-output check, and locked changed-input record are in `docs/validation-and-ai-use.md` and matching frozen PDF. The baseline commit date is honestly disclosed as later than the October 9 prediction. |
+| Decision memo | Ready | `docs/decision-memo.pdf` and content-equivalent Markdown. |
+| Three videos, corrected transcripts, access, manifest | Pending student action | Scripts are recording-ready in `docs/transcript-video-1.txt`, `-2.txt`, and `-3.txt`; record the actual videos, correct wording/timestamps to exactly match them, add accessible video links/durations/timestamp indices to the 12-row manifest, and verify instructional-team access. |
 
-## Non-negotiable final package
+## Final-recording rule
 
-The final Project 1 package must include the unchanged Edition A plus Edition B, accessible repository and visible executed output, decision memo/deck, frozen validation-and-AI-use PDF, three bounded videos with transcripts, and the 12-row manifest. The repository must also retain content-equivalent `docs/` files and must not contain credentials or private data.
-
-## Priority order
-
-1. Rebuild the model around an articulating three-statement forecast that produces FCFF.
-2. Source/reconcile the FCFF starting point, WACC, enterprise-to-equity bridge, normalizations, and peer policy.
-3. Build the semi-adjustable interface and the validation/cold-run evidence.
-4. Produce the memo/deck, final research-evolution PDF, validation PDF, videos/transcripts, and manifest.
+Do not alter model inputs, results, or frozen PDFs after recording unless the recordings and transcripts are also updated. After recording, replace each script with its corrected transcript, complete the manifest, create one final commit, and submit the same `Validation-and-AI-Use.pdf` to Brightspace.

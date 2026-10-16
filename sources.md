@@ -17,6 +17,7 @@
 | S11 | [Apple Q3 FY2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm) | July 31, 2026 (filed) | Apple Inc.; SEC filing | Nine-month effective tax rate was 17.6%; commercial paper plus current and non-current term debt totalled $84,344M. |
 | S12 | [Damodaran January 2026 data update](https://aswathdamodaran.blogspot.com/2026/01/) | January 23, 2026 | Aswath Damodaran | The January 1, 2026 U.S. implied ERP was 4.23% using the Treasury-bond rate convention. |
 | S13 | [Yahoo Finance AAPL quote](https://finance.yahoo.com/quote/AAPL/) | September 16, 2026 (retrieved) | Yahoo Finance | Provider-reported AAPL five-year monthly beta was 1.09; this is a market-data input, not a company filing fact. |
+| S14 | [Yahoo Finance AAPL historical prices](https://finance.yahoo.com/quote/AAPL/history/) | September 17, 2026 | Yahoo Finance | AAPL closed at $337.00 on September 17, 2026; this is the valuation-date market-price input. |
 
 ## Promise-to-outcome check
 
