@@ -1,0 +1,24 @@
+PROJECT 1 — VIDEO 2: CODEBASE AND VALIDATION WALKTHROUGH
+DRAFT RECORDING SCRIPT — REPLACE WITH A TRANSCRIPT MATCHING THE FINAL RECORDING
+Target duration: 5:00 maximum
+
+[00:00] This is my Apple Project 1 repository. The current decision is watch/defer for a buy-side committee as of September 17, 2026. I will show how the submitted analysis produces the visible output and then demonstrate the highest-risk validation issue.
+
+[00:20] The source ledger is sources.md. The research-evolution documents are project-1-edition-a and project-1-edition-b. The current FCFF valuation engine is dcf.py. analysis.py imports the DCF inputs and writes visible_output.json, which is the frozen result a grader can inspect without running code.
+
+[00:48] In dcf.py, the material inputs are starting FCFF of $131.0 billion, five years of 7% FCFF growth, 8% WACC, 3% terminal growth, $146.517 billion of non-operating cash and marketable securities, $84.344 billion of debt, and 14.594 billion shares. The script discounts the explicit cash flows, calculates terminal value at the end of Year 5, discounts it five years, then adds non-operating assets and subtracts debt to produce equity value per share.
+
+[01:28] I run python3 dcf.py. The base case reports a value of $224.4154 per share. It also reports a terminal-value share of 80.17% of enterprise value, a WACC–terminal-growth sensitivity grid, and a reverse DCF. The terminal-growth guard stops the calculation if terminal growth is greater than or equal to WACC.
+
+[02:02] I then run python3 analysis.py. It writes visible_output.json with the as-of date, decision, units, material inputs, base valuation result, and limitations. This avoids manually typing a valuation result into the visible artifact.
+
+[02:28] The highest-risk financial issue is not a Python exception. It is the FCFF starting-point and architecture risk. The $131.0 billion starting FCFF is currently an interim estimate, and the separate Apple workbench calculates FCFE rather than FCFF. I do not treat that workbench as the final valuation engine.
+
+[02:57] I demonstrate the existing sensitivity runner with python3 apple_lab10_sensitivity.py --run. It changes one driver at a time and restores the base case after the sensitivity tests. Revenue growth has a larger output range than gross margin over the chosen ranges. However, these are FCFE sensitivity results, so they are supporting operating-driver evidence rather than final FCFF valuation evidence.
+
+[03:34] I also run python3 peer_valuation.py. It produces the interim Microsoft and Alphabet P/E cross-check and removal sensitivity. The code runs, but I qualify the result because the final peer policy, EV multiple, and equity-value multiple are not complete.
+
+[04:05] The required next repair is to build an Apple-specific, articulating three-statement forecast that generates FCFF. It must balance each year, tie cash flow to cash, use sourced WACC and bridge conventions, and feed the same engine that supplies the interface and visible output.
+
+[04:34] A clean user can reproduce the current interim output with the README commands and Python 3.10 or newer; no third-party packages or credentials are required. The current limitations and AI-use record are in docs/validation-and-ai-use.md.
+

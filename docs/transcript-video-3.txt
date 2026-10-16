@@ -1,0 +1,24 @@
+PROJECT 1 — VIDEO 3: INVESTMENT-COMMITTEE PRESENTATION
+DRAFT RECORDING SCRIPT — REPLACE WITH A TRANSCRIPT MATCHING THE FINAL RECORDING
+Target duration: 5:00 maximum
+
+[00:00] My recommendation is watch/defer Apple. I would not initiate at $337.00 per share as of September 17, 2026. I will begin by demonstrating the current analyst tool.
+
+[00:12] [Show the product interface or the visible model output.] Here is the base FCFF DCF result: $224.42 per share. The visible output shows the as-of date, 7% five-year FCFF growth, 8% WACC, 3% terminal growth, non-operating cash, debt, shares, and the model limitations.
+
+[00:32] [Move one bounded driver.] I lower the revenue or FCFF-growth driver from the base case to the lower case. The value declines because a lower cash-flow path affects every explicit forecast year and terminal value. [State the actual on-screen before-and-after result from the final product.]
+
+[00:52] [Restore base.] I restore the base case. The original value returns. This matters because the model must let another analyst test a bounded alternative without changing the underlying accounting engine.
+
+[01:06] [Show a deliberately incoherent input and the check panel.] I now set terminal growth to equal or exceed WACC. The model rejects this combination because the Gordon-growth denominator would be zero or negative. [Show the visible failed check.] I restore a valid terminal-growth rate below WACC, and the check returns to pass.
+
+[01:30] The committee decision is watch/defer rather than initiate. The base FCFF DCF produces $224.42 per share. The interim P/E cross-check produces $206.86 to $239.69 per share. I do not mechanically average the two methods. The DCF is driven by Apple cash-flow assumptions; the peer output is constrained by material differences between Apple, Microsoft, and Alphabet.
+
+[02:08] The key investment question is what the current market price implies. The reverse DCF indicates that the $337.00 price requires about a 9.955 percentage-point increase to each explicit FCFF-growth assumption, with the other model inputs held fixed. That requirement focuses the diligence agenda on cash-flow durability rather than asserting that the market is wrong.
+
+[02:38] My principal risks are Services and iPhone demand durability, Greater China, margin pressure, regulatory effects, the starting-FCFF estimate, WACC support, bridge treatment, and peer comparability. I monitor these through each earnings release, especially Services growth, iPhone demand, Greater China revenue, gross margin, regulatory developments, and cash-flow conversion.
+
+[03:16] I would reconsider the decision if validated evidence supports a materially stronger FCFF or margin path, if the committee approves a different documented bridge convention, or if the price moves into a refreshed valuation range without deterioration in the operating outlook.
+
+[03:38] My committee ask is to defer initiation and authorize completion of the FCFF three-statement model, bridge reconciliation, peer policy, and final validation tests. Until then, the recommendation remains watch/defer.
+
