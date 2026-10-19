@@ -3,6 +3,7 @@
 This directory contains the current project-source records and frozen PDFs:
 
 - `research-evolution.pdf` — unchanged Edition A followed by current Edition B.
+- `research-evolution.md` — GitHub-readable Markdown companion containing Editions A and B.
 - `edition-a/` — preserved Edition A source artifacts; `edition-b.md` — current Edition B source.
 - `final-readiness-audit.md` — final submission checklist and remaining student-only actions.
 - `decision-memo.pdf` — decision memo source-equivalent to `decision-memo.md`.
