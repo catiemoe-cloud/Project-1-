@@ -1,40 +1,32 @@
 PROJECT 1 — VIDEO 3: COMMITTEE RECOMMENDATION AND PRODUCT DEMO
 RECORDING-READY SCRIPT — screen directions are in brackets and are not spoken
 
-[Start with `python3 src/app.py` running and the workbench open at `http://127.0.0.1:8000`.]
+[Start with `python3 src/app.py` running and the Apple FCFF Analyst Workbench open at `http://127.0.0.1:8000`.]
 
-In this video, I will be showing my final Apple recommendation and demonstrating the model. My recommendation is watch/defer Apple. I would not initiate at the recorded market price of $337 per share as of September 17, 2026.
+In this video, I will be showing my final recommendation for Apple and demonstrating how the model supports that decision. My recommendation is watch/defer Apple. I would not initiate at the recorded market price of $337 per share as of September 17, 2026.
 
-Looking at the base case, I used 6% revenue growth, a 47% gross margin, operating expenses of 15% of revenue, capex of 3% of revenue, a 9% WACC, and 2.5% terminal growth. The WACC component build is 9.45%, and 9% is the rounded model input. Using these assumptions, the model gives a base value of $131.61 per share. The table below shows the five-year forecast for revenue, EBIT, FCFF, and the balance-sheet and cash-flow checks.
+Looking at the base case, the workbench uses 6% revenue growth, a 47% gross margin, a 9% WACC, and 2.5% terminal growth. The base output is $131.61 per share. This is below the market price, and the five-year table also shows the forecasted revenue, EBIT, FCFF, and the statement checks.
 
 [Change only revenue growth from 6.0% to 9.0%, then select Run valuation.]
 
-Next, I am changing only revenue growth from 6% to 9%. The value per share increases to $148.85. This is my locked changed-input validation. Keeping everything else the same, higher revenue growth increases revenue, EBIT, and FCFF, which increases enterprise value. Even after the increase, I would still watch/defer because $148.85 is still below the $337 market price.
+Next, I am changing only revenue growth from 6% to 9%. The value per share increases to $148.85. Keeping the other assumptions the same, higher revenue growth increases projected revenue, EBIT, and FCFF, which increases enterprise value. Even after the increase, I would still watch/defer because $148.85 is still below $337. This is a controlled what-if test, not a new base case.
 
 [Select Reset base.]
 
-Now I am resetting the base case. The $131.61 value returns. This shows that testing a different assumption does not silently change my original base case.
+Now I am resetting the base case. The $131.61 value returns. This keeps the what-if test from silently changing my original recommendation.
 
 [Select Show invalid-input check, then Reset base.]
 
-I also included an invalid-input check. A 5% WACC is outside the model’s allowed 6% to 12% range, so the product gives an input-check-failed message instead of creating a result. This is one guardrail that helps keep the model from using an unsupported input.
+I also included an input guardrail. A 5% WACC is outside the model’s allowed range of 6% to 12%, so the workbench gives an input-check-failed message instead of producing a valuation. This makes the product safer for a user changing assumptions.
 
-[Show `docs/decision-memo.pdf`.]
+[Show `docs/decision-memo.pdf` at the valuation range and enterprise-to-equity bridge.]
 
-Next, looking at my decision memo, the FCFF model produces enterprise value of about $1.859 trillion. I then add $146.517 billion of cash and marketable securities and subtract $84.344 billion of commercial paper and term debt. After dividing by 14.594 billion shares, the final base value is $131.61 per share.
+Next, looking at my decision memo, the five-year FCFF model produces enterprise value of about $1.859 trillion. After adding cash and marketable securities, subtracting debt, and dividing by shares, the base equity value is $131.61 per share.
 
-[Show the cases and sensitivity in `output/visible_output.json` or model output.]
+The low, base, and high values are $87.07, $131.61, and $185.85 per share. All three are below the recorded $337 market price. My peer cross-check also stayed below the market price, but I do not mechanically average methods because the peer companies are not identical to Apple.
 
-My low, base, and high cases are $87.07, $131.61, and $185.85 per share. The WACC and terminal-growth sensitivity ranges from $109.06 to $167.57 per share. Terminal value makes up 74.9% of enterprise value, so long-run performance and the discount rate are very important to this valuation. I am not treating this as one exact number.
+[Stay on the decision memo’s risks, monitoring, and reversal-conditions section.]
 
-[Show `research/peer-policy.md`.]
+The recommendation could change if future filings show stronger and sustainable Services growth, iPhone demand, Greater China performance, gross margin, or cash-flow conversion. I would also monitor capital spending and regulation. If that evidence supports a stronger FCFF path, I would rebuild the forecast and reconsider initiating a position.
 
-For my peer policy, I used Microsoft and Alphabet as a cross-check. Their P/E multiples give Apple a range of $206.86 to $239.69 per share. These values are higher than my DCF value, but they are still below $337. I did not average the peer multiples with the DCF because Microsoft has more enterprise and cloud exposure, while Alphabet is more advertising-led. They are not the same company as Apple.
-
-[Show the monitoring and conditions section of `docs/decision-memo.pdf`.]
-
-The biggest things I would monitor are Services growth, iPhone demand, Greater China performance, gross margin, cash-flow conversion, capital spending, and regulation. If future filings show stronger and sustainable performance in these areas, or if the market price enters a refreshed valuation range without operating performance getting worse, I would rebuild the forecast and reconsider the recommendation.
-
-[Show `docs/validation-and-ai-use.md`.]
-
-Finally, the result is reproducible and visible in the output file. I completed statement-articulation checks, bridge checks, WACC and terminal-growth direction checks, a known-answer test, peer-definition checks, a cold run, and the changed-input validation. Based on this work, my committee ask is to defer initiating Apple today and revisit it only if the monitored evidence changes the valuation range or the comparison with the market price.
+The decision today is not that Apple is a bad company. It is that, under the documented assumptions and current $337 market price, the risk-adjusted evidence does not support starting a position today. My committee ask is to defer initiation and revisit the company when either the operating evidence or the price-to-value comparison changes.
