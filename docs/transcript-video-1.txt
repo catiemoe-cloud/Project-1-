@@ -1,11 +1,11 @@
 PROJECT 1 — VIDEO 1: RESEARCH EVOLUTION AND AI-OUTPUT CHECK
 CORRECTED TRANSCRIPT OF RECORDED VIDEO — no timestamps
 
-In this video, I will be showing how I developed my research and how it evolved from Edition A to Edition B, as well as any other documents created in the process of determining whether a buy-side investment committee should buy Apple.
+In this video, I will be showing how I developed my research and how it evolved from Edition A to Edition B, as well as the other documents created in the process of determining whether a buy-side investment committee should buy Apple.
 
 Looking at my Edition A, this is my original baseline. This is preserved and unchanged from before any valuation work. It records my initial watch/defer view, filing evidence, and questions I needed to investigate.
 
-Here we can see my initial thesis, consequential assumptions, unknown and decision-critical questions, and a research plan I then followed.
+Here we can see my initial thesis, consequential assumptions, unknown and decision-critical questions, and a research plan that I then followed.
 
 Next, looking at my Edition B, this develops the baseline into September 17, 2026. Here I use the fiscal-year 2025 10-K and the Q3 fiscal-year 2026 10-Q for updated cash, debt, and shares.
 
@@ -15,7 +15,7 @@ Next, looking at the decision memo, after adding cash and marketable securities,
 
 Next, I established my peer policy. Here I used Microsoft and Alphabet. Their P/E multiples ended up giving us a range of $206.86 to $239.69. While these are above my DCF value, they are still below $337.
 
-Next, looking at the validation and AI use, I did use Codex for reconciliation, documentation, code drafting, and review. I checked work against filings while still double-checking all work created by Codex and making sure everything passed the final testing, even with some limitations.
+Next, looking at the validation and AI use, I did use Codex for reconciliation, documentation, code drafting, and review. I checked work against filings while still double-checking all work created by Codex and making sure everything passed the final checks, even with some limitations.
 
 I did have a challenge from a classmate. I had Allie Vinatieri look at my work, and she challenged my revenue-growth assumption of 6% for all five years, wondering why growth does not fade over time. I did respond, and I used her question in my locked changed-input record with AI off.
 
