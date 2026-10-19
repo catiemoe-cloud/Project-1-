@@ -1,38 +1,19 @@
 PROJECT 1 — VIDEO 2: CODEBASE AND VALIDATION WALKTHROUGH
-RECORDING-READY SCRIPT — screen directions are in brackets and are not spoken
 
-[Show the repository root and `README.md`.]
+[00:01] In this video, I'll be showing how my Apple valuation model works, how someone can run it, and the validations that I completed in the process.
 
-In this video, I will be showing how my Apple valuation model works, how someone can run it, and the validation I completed. This project is for a buy-side investment committee deciding whether to initiate Apple as of September 17, 2026.
+[00:11] To run the project, a user needs Python 3.9 or later. The analysis script creates visible output so you can see the inputs, valuation date, results, and checks without running the model.
 
-Looking at the repository, the README explains the decision, sources, how to run the project, and limitations. Source code is in src, research is in research, visible output is in output, and final documents are in docs.
+[00:32] Next, looking at the model itself, it starts with Apple's fiscal-year 2025 audited balance sheet and forecasts fiscal year 2026 to fiscal year 2030. My base assumptions are 6% revenue growth, 47% gross margin, 15% operating expense, 3% capex, 9% WACC, and 2.5% terminal growth.
 
-[Show the run commands in `README.md`.]
+[01:10] The first thing in running our model is running our src Apple FCFF model. When I run this model, the base value is $131.61 per share, and both statement checks are zero for all five years. My low, base, and high cases are $87.07, $131.61, and $185.85. The WACC and terminal-growth sensitivity ranges from $109.06 to $167.57. My reverse DCF check could not reach $337 with constant growth from negative 10% to 30%, keeping other inputs fixed.
 
-To run the project, a user needs Python 3.9 or later. There are no third-party packages, credentials, or API keys. The analysis script creates visible output, so a grader can see inputs, valuation date, results, and checks without running the model.
+[02:06] Next, running our analysis and our peer valuation. The analysis script creates visible outputs from the same model, so I don't have to manually type results into the report. For the peer cross-check, I use Microsoft and Alphabet based on the policy created before selecting them. Their P/E results imply $206.86 to $239.69 per share, which I did not average into the DCF because their businesses differ from Apple.
 
-[Open `src/apple_fcff_model.py` at the inputs and assumptions.]
+[02:52] Now, going over to my GitHub to show the documents created for the enterprise-to-equity bridge. I added $146,517 million of cash and marketable securities, subtracted $84,344 million of debt, and divided by 14,594.18 million shares. The documented WACC build is 9.45%. The model, however, uses a 9% whole-percent base input.
 
-Next, looking at the model itself, it starts with Apple’s fiscal-year 2025 audited balance sheet and forecasts FY2026E through FY2030E. My base assumptions are 6% revenue growth, 47% gross margin, 15% operating expenses as a share of revenue, 3% capex, 9% WACC, and 2.5% terminal growth.
+[03:34] Next, looking at my validation, the biggest risk was that the statements could look correct but not actually articulate. I tested that first, along with the Week 3 training-case answer, filing-based bridge values, WACC inputs, and expected DCF direction.
 
-FCFF is NOPAT plus depreciation, less capex and the change in operating net working capital. For every year, assets must equal liabilities plus equity, and cash flow must match the balance-sheet change in cash. If either one does not tie, the check fails.
+[03:53] For my locked changed-input test, I made an AI-off prediction before running the test. I changed only revenue growth from 6% to 9%. The value increased from $131.61 to $148.85 per share, which matched my prediction. My watch/defer recommendation did not change because the result was still below $337. The record also explains that I wrote the prediction on October 9th, but the baseline commit was created at a later date. I did not backdate it. I just did not run it on that date.
 
-[Run `python3 src/apple_fcff_model.py` and show the results.]
-
-When I run the model, the base value is $131.61 per share, and both statement checks are zero for all five years. My low, base, and high cases are $87.07, $131.61, and $185.85. The WACC and terminal-growth sensitivity ranges from $109.06 to $167.57. My reverse-DCF check could not reach $337 with constant growth from negative 10% to 30%, keeping the other inputs fixed. This shows the expectations needed under this model.
-
-[Show `docs/wacc-build.md` and the bridge output.]
-
-For the enterprise-to-equity bridge, I added $146,517 million of cash and marketable securities, subtracted $84,344 million of debt, and divided by 14,594.18 million shares. The documented WACC build is 9.45%; the model uses a rounded 9% input and shows the 8% to 10% range.
-
-[Run `python3 src/analysis.py` and show `output/visible_output.json`. Then run `python3 src/peer_valuation.py` and show `research/peer-policy.md`.]
-
-The analysis script creates visible output from the same model, so I am not manually typing results into a report. For the peer cross-check, I used Microsoft and Alphabet based on a policy created before selecting them. Their P/E results imply $206.86 to $239.69 per share. I do not average them into the DCF because their businesses differ from Apple.
-
-[Show `docs/validation-and-ai-use.md` and `docs/cold-run.md`.]
-
-Next, looking at validation, the biggest risk was that the statements could look correct but not actually articulate. I tested that first, along with the Week 3 training-case answer, filing-based bridge values, WACC inputs, and expected DCF direction.
-
-For my locked changed-input test, I made an AI-off prediction before running the test. I changed only revenue growth from 6% to 9%. The value increased from $131.61 to $148.85 per share, which matched my prediction, but my watch/defer recommendation did not change because the result was still below $337. The record also explains that I wrote the prediction on October 9, but the baseline Git commit was created later. I did not backdate it.
-
-Finally, I completed a README-only cold run in a fresh folder. It passed on the first attempt without third-party dependencies. I used Codex for organization, code drafting, documentation, and review, but I checked the final work against filings and used these validation results to support the output.
+[04:38] Next, going over to my README-only cold-run record in a fresh folder. It passed on my first attempt without having to use a third party. I used Codex for organization, code drafting, documentation, and review, but I checked the final work against filings and used these validation results to support the output.
