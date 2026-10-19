@@ -1,19 +1,22 @@
 PROJECT 1 — VIDEO 1: RESEARCH EVOLUTION AND AI-OUTPUT CHECK
-RECORDING-READY SCRIPT — replace only after recording if your spoken wording differs
-Target duration: 3:00 maximum
+CORRECTED TRANSCRIPT OF RECORDED VIDEO — no timestamps
 
-[Show `docs/research-evolution.pdf`, beginning with Edition A.] I am evaluating Apple common stock for a buy-side investment committee with no current position. The final Edition B valuation date is September 17, 2026. The unchanged Edition A pages that appear first retain their original September 1, 2026 planning valuation date. My final action is watch/defer: I would not initiate at the recorded $337.00 market price.
+In this video, I will be showing how I developed my research and how it evolved from Edition A to Edition B, as well as any other documents created in the process of determining whether a buy-side investment committee should buy Apple.
 
-[Show the Edition A pages.] Edition A is preserved unchanged. It identified Services growth, the product cycle, Greater China, regulation, and capital allocation as decision-critical questions using Apple’s FY2025 10-K and Q3 FY2026 10-Q. It did not yet contain a reproducible valuation relative to market price.
+Looking at my Edition A, this is my original baseline. This is preserved and unchanged from before any valuation work. It records my initial watch/defer view, filing evidence, and questions I needed to investigate.
 
-[Move to Edition B.] Edition B retains the action but changes the evidence: a five-year articulating FCFF model, filing-linked inputs, causal cases, a WACC-growth grid, a reverse-DCF boundary, peer policy, and validation evidence.
+Here we can see my initial thesis, consequential assumptions, unknown and decision-critical questions, and a research plan I then followed.
 
-[Show `docs/edition-b.md` and `research/sources.md`.] The base case uses 6% revenue growth, 47% gross margin, 15% operating expenses, 3% capex, 9% WACC, and 2.5% terminal growth. The 9% input is a rounded representation of the documented 9.45% component build. The result is $131.61 per share.
+Next, looking at my Edition B, this develops the baseline into September 17, 2026. Here I use the fiscal-year 2025 10-K and the Q3 fiscal-year 2026 10-Q for updated cash, debt, and shares.
 
-[Show the bridge and cases in Edition B or `docs/decision-memo.pdf`.] The bridge adds $146,517 million of cash and securities, subtracts $84,344 million of debt, and divides by 14,594.18 million shares. Low, base, and high values are $87.07, $131.61, and $185.85. I report a range, not false point precision.
+The recommendation stayed watch/defer, but the reason behind it is more specific than in Edition A. Edition A lacked a valuation, while Edition B showed the valuation range below a recorded $337 market price. Using the base assumptions for 6% annual growth, 47% gross margin, and the other documented assumptions, we ended up producing a value of about $131 per share, which was below the $337 market price.
 
-[Show `research/peer-policy.md`.] Microsoft and Alphabet are qualified cross-checks, not interchangeable peers. Their P/E range is $206.86 to $239.69 per Apple share, and Alphabet’s EV-to-revenue multiple is 10.7747 times. I do not average them with the DCF because their business mixes differ.
+Next, looking at the decision memo, after adding cash and marketable securities, subtracting debt, and dividing by shares outstanding, the values we produced were about $87, $131, and $185 per share. All were below the market price.
 
-[Show the AI register and fresh-eyes section.] Codex assisted with source reconciliation, documentation, code drafting, and review. I independently qualified an AI-flagged peer-comparability risk. Classmate Allie Vinatieri challenged my flat 6% growth assumption; I recorded her question, response, and the evidence that would make me lower growth.
+Next, I established my peer policy. Here I used Microsoft and Alphabet. Their P/E multiples ended up giving us a range of $206.86 to $239.69. While these are above my DCF value, they are still below $337.
 
-[Show the locked changed-input record.] I independently tested the model by changing only revenue growth from 6% to 9%. As I predicted before the run, value rose from $131.61 to $148.85 per share, but the action remained watch/defer because the changed value is still below $337.00. My conclusion is conditional: revisit only if filed evidence supports a stronger sustainable FCFF path or price enters a refreshed valuation range without operating deterioration.
+Next, looking at the validation and AI use, I did use Codex for reconciliation, documentation, code drafting, and review. I checked work against filings while still double-checking all work created by Codex and making sure everything passed the final testing, even with some limitations.
+
+I did have a challenge from a classmate. I had Allie Vinatieri look at my work, and she challenged my revenue-growth assumption of 6% for all five years, wondering why growth does not fade over time. I did respond, and I used her question in my locked changed-input record with AI off.
+
+I made a prediction that increasing revenue growth from 6% to 9% would increase Apple’s projected revenue. I made this prediction, had my baseline commit, and ran the command.
