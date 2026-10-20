@@ -13,7 +13,7 @@ Now I’ll show how easily accessible my model is. I can reset this base case. T
 
 Still in the workbench, I can also show how I included an invalid-input check. Clicking on this button, you can see that a 5% WACC is outside the model’s allowable range of 6% minimum. So the workbench gives an input-check-failed message instead of creating a valuation. This is a guardrail that prevents unsupported inputs from producing a result.
 
-The last thing I’d like to show the committee is my decision memo. The five-year FCFF model produces enterprise value of about $1.8 trillion. After adding cash and marketable securities, subtracting debt, and dividing by shares, the base equity value is $131.61 per share. Therefore, this base case is below by $25.39, leading to my watch-and-defer conclusion.
+The last thing I’d like to show the committee is my decision memo. The five-year FCFF model produces enterprise value of about $1.8 trillion. After adding cash and marketable securities, subtracting debt, and dividing by shares, the base equity value is $131.61 per share. Therefore, this base case is below by $205.39, leading to my watch-and-defer conclusion.
 
 The low, base, and high values are $87, $131.61, and $185.85 per share. All three are below the recorded $337 market price as well. My peer cross-check also stayed below the market price, but I do not mechanically average these methods because the peer companies are not identical to Apple.
 
